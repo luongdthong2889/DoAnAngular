@@ -1,0 +1,79 @@
+<div class="banner_top innerpage"  id="home">
+    <div class="wrapper_top_w3layouts">
+        <div class="header_agileits">
+            <div class="logo  inner_page_log">
+                <h1 class="navbar-brand" style="height: auto;cursor: pointer;" [routerLink]="['/']" routerLinkActive="router-link-active" ><span>Downy</span> <i style="padding-left: 0.5em;">Shoes</i></h1>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+        <!-- cart details -->
+<div class="top_nav_right"  routerLink="/cart" routerLinkActive="active" >
+    <div class="shoecart shoecart2 cart cart box_1">
+        <form action="#" method="post" class="last">
+            <input type="hidden" name="cmd" value="_cart">
+            <input type="hidden" name="display" value="1">
+            <button class="top_shoe_cart" type="submit" name="submit" value="" style="position: fixed;">
+                <i class="fa fa-cart-arrow-down" aria-hidden="true" style="font-size: 28px !important; "></i>
+            </button>
+        </form>
+    </div>
+</div>
+<div class="top_nav_right" routerLink="/login" routerLinkActive="active" style="margin-right: -55px;" >
+    <div class="shoecart shoecart2 cart cart box_1">
+        <form action="#" method="post" class="last">
+            <input type="hidden" name="cmd" value="_cart">
+            <input type="hidden" name="display" value="1">
+            <button class="top_shoe_cart" type="submit" name="submit" value="" style="position: fixed;" >
+                <i class="fas fa-user" aria-hidden="true" style="font-size: 28px !important; "></i>
+            </button>
+        </form>
+    </div>
+</div>
+<ng-sidebar-container>
+ 
+    <!-- A sidebar -->
+    <ng-sidebar [(opened)]="_opened" (click)="_toggleSidebar()">
+        
+      <nav>
+        <ul class="listHeader">
+            <li class="listItem"><a class="itemLink" [routerLink]="['/']" routerLinkActive="router-link-active" >Home</a></li>
+            <li class="listItem"><a class="itemLink" [routerLink]="['/about']" routerLinkActive="router-link-active" >About</a></li>
+            <li class="listItem"><a class="itemLink"[routerLink]="['/product']" routerLinkActive="router-link-active" >Shop Now</a></li>
+            <li class="listItem"><a class="itemLink"[routerLink]="['/contact']" routerLinkActive="router-link-active">Contact</a></li>
+        </ul>
+    </nav>
+					
+    </ng-sidebar>
+
+    <!-- Page content -->
+    <div ng-sidebar-content>
+        <div class="top_nav_right" style="margin-right: -110px;" >
+            <div class="shoecart shoecart2 cart cart box_1">
+                <form action="#" method="post" class="last">
+                    <input type="hidden" name="cmd" value="_cart">
+                    <input type="hidden" name="display" value="1">
+                    <button class="top_shoe_cart" type="submit" name="submit" value="" style="position: fixed;" >
+                        <i class="fas fa-bars"(click)="_toggleSidebar()" aria-hidden="true" style="font-size: 28px !important; "></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+  </ng-sidebar-container>
+
+<!-- //cart details -->
+        <!-- /slider -->
+        
+        <!-- //slider -->
+        <div class="services-breadcrumb_w3ls_agileinfo">
+			<div class="inner_breadcrumb_agileits_w3">
+
+				<ul class="short">
+					<li><a [routerLink]="['/']" routerLinkActive="router-link-active" >Home</a></li>
+					<li>{{this.router.url}}</li>
+				</ul>
+			</div>
+		</div>
+    </div>
+</div>

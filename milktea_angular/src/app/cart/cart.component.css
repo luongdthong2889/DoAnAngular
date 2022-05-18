@@ -1,0 +1,22 @@
+h3{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 24px;
+}
+input.ng-invalid.ng-touched,
+textarea.ng-invalid.ng-touched
+{
+    border: 1px solid red;
+}
+.radio-btn{
+    display:  flex;
+    align-items: center;
+    margin-bottom: 25px;
+}
+label{
+    margin: 0;
+    width: 135px;
+}
+.radio-btn input[type="radio"]{
+    margin: 0;
+    width: auto !important;
+}

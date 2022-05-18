@@ -1,0 +1,129 @@
+<div class="ads-grid_shop">
+    <div class="shop_inner_inf">
+        <div class="privacy about">
+            <h3>Checkout</h3>
+            <div class="checkout-right">
+                <h4 >Your shopping cart contains: <span>{{cart.length}} Products</span></h4>
+                <table class="timetable_sub">
+                    <tr>
+                        <th>SL No.</th>
+                        <th>Product</th>
+                        <th>Quantity</th>
+                        <th>Product Name</th>
+                        <th>Price</th>
+                        <th>Remove</th>
+                    </tr>
+                    <tr class="rem1" *ngFor="let cartItem of cart;let i=index">
+                        <td class="invert">
+                            {{i+1}}
+                        </td>
+                        <td class="invert-image" width="514.72px" height="154.41px">
+                            <a [routerLink]="['/detail',i]" routerLinkActive="router-link-active" ><img src="{{cartItem.product.imagePath}}" alt=" "  class="img-responsive"></a>
+                        </td>
+                        <td class="invert">
+                            <div class="quantity">
+                                <div class="quantity-select">
+                                    <div class="entry value-minus" (click)="onDecreaseQuantity(i)">&nbsp;</div>
+                                    <div class="entry value"><span>{{cartItem.quantity}}</span></div>
+                                    <div class="entry value-plus active" (click)="onIncreaseQuantity(i)">&nbsp;</div>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="invert">
+                            {{cartItem.product.name}} ({{cartItem.product.size}} | {{cartItem.product.types}}) 
+                        </td>
+
+                        <td class="invert">
+                            {{cartItem.price|currency}}
+                        </td>
+                        <td>
+                            <i class="fa fa-times" (click)="onDeleteCartItem(i)" style="cursor:pointer;"></i>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="checkout-left">
+                <div class="col-md-4 checkout-left-basket">
+                    <h4 [routerLink]="['/product']" routerLinkActive="router-link-active" style="cursor: pointer;" >Continue to basket</h4>
+                    <ul>
+                        <li *ngFor="let cartItem of cart">{{cartItem.product.name}} ({{cartItem.product.size}} | {{cartItem.product.types}})  <i>-</i> <span>{{cartItem.price|currency}} </span></li>
+                        <li>Total <i>-</i> <span>{{totalPrice|currency}}</span></li>
+                    </ul>
+                    <div class="pay_info" [style.display]="payDisable">
+                        <form action="#" [formGroup]="paymentForm" method="post" name="paymentForm" class="creditly-card-form agileinfo_form">
+                            <section class="creditly-wrapper wthree, w3_agileits_wrapper">
+                                <div class="credit-card-wrapper">
+                                    <div class="first-row form-group">
+                                        <div class="controls">
+                                            <label class="control-label">Name on Card</label>
+                                            <input class="billing-address-name form-control" type="text" formControlName="cardName" placeholder="Card Name" required>
+                                        </div>
+                                        <div class="w3_agileits_card_number_grids">
+                                            <div class="w3_agileits_card_number_grid_left">
+                                                <div class="controls">
+                                                    <label class="control-label">Card Number</label>
+                                                    <input class="number credit-card-number form-control" formControlName="cardNumber" type="text"  placeholder="Card Number" required="">
+                                                </div>
+                                            </div>
+                                            <div class="w3_agileits_card_number_grid_right">
+                                                <div class="controls">
+                                                    <label class="control-label">Bank Name</label>
+                                                    <input class="security-code form-control" type="text" formControlName="bankName" placeholder="Bank Name" required="">
+                                                </div>
+                                            </div>
+                                            <div class="clear"> </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-md-8 address_form" [style.display]="payDetail">
+                    <h4>Add a new Details</h4>
+                    <form [formGroup]="checkoutForm" (ngSubmit)="CheckOut()" class="creditly-card-form agileinfo_form">
+                        <section class="creditly-wrapper wrapper">
+                            <div class="information-wrapper">
+                                <div class="first-row form-group">
+                                    <div class="controls">
+                                        <label class="control-label">Full name: </label>
+                                        <input class="billing-address-name form-control" formControlName="name" type="text" id="name" name="name" placeholder="Full name">
+                                    </div>
+                                    <div class="card_number_grids">
+                                        <div class="card_number_grid_left">
+                                            <div class="controls">
+                                                <label class="control-label">Mobile number:</label>
+                                                <input class="form-control" formControlName="phone" type="text" id="phone" placeholder="Mobile number">
+                                            </div>
+                                        </div>
+                                        <div class="card_number_grid_right">
+                                            <div class="controls">
+                                                <label class="control-label">Address: </label>
+                                                <input class="form-control" formControlName="address" type="text" id="address" placeholder="Address">
+                                            </div>
+                                        </div>
+                                        <div class="clear"> </div>
+                                    </div>
+                                    <div class="controls">
+                                        <label class="control-label">Town/City: </label>
+                                        <input class="form-control" formControlName="city" type="text" id="city" placeholder="Town/City">
+                                    </div>
+                                    <mat-radio-group formControlName="payment" name="payment" [(ngModel)]="typeSelect" (ngModelChange)="showChange()">
+                                        <mat-radio-button style="padding-right: 20px;" *ngFor="let typePay of typesPay" [value]=typePay.name>{{typePay.name}}</mat-radio-button>
+                                    </mat-radio-group>                                     
+                                    
+                                </div>
+                                <button type ="submit" [disabled]="!checkoutForm.valid || !paymentForm.valid"  class="tmp btn btn-danger" style="background-color: #fb383b;" >Delivery to this Address</button>
+                            </div>
+                        </section>
+                    </form>
+                </div>
+
+                <div class="clearfix"> </div>
+
+
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+    <!-- //top products -->

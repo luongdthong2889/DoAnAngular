@@ -1,0 +1,52 @@
+
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+            <!-- Sidebar - Brand -->
+           <div style="display: flex; justify-content: center; margin-top: 8px;">
+            <h1 class="navbar-brand" style="height: auto;cursor: pointer;" [routerLink]="['/']" routerLinkActive="router-link-active" ><span>Downy</span> <i style="padding-left: 0.5em;">Shoes</i></h1>
+            </div>
+               
+
+
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0">
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" routerLink="product" data-toggle="collapse" data-target="#collapseTwo"
+                    aria-expanded="true" aria-controls="collapseTwo">
+                    <i class="fas fa-store"></i>
+                    <span>Product</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link collapsed" (click)="backToClient()"  data-toggle="collapse" data-target="#collapseUtilities"
+                aria-expanded="true" aria-controls="collapseUtilities">
+                <span>Back to Client</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link collapsed" (click)="logOut()"  data-toggle="collapse" data-target="#collapseUtilities"
+                aria-expanded="true" aria-controls="collapseUtilities">
+                <span>Log Out</span>
+                </a>
+            </li>
+      
+        </ul>
+        <!-- End of Sidebar -->
+
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+            <!-- <div class="col-md-6" style="margin-top: 18px;">
+                <div class="product-sec1">
+                  <app-admin-product></app-admin-product>
+                </div>
+            </div> -->
+            <div id="content">             
+                <router-outlet></router-outlet>
+            </div>       
+        </div>      
+    </div>

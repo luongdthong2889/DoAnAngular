@@ -1,0 +1,19 @@
+<div style="position:relative">
+    <a style="cursor: pointer; padding-top: 0px;"
+    [routerLink]="[index]"
+    routerLinkActive="active"
+    class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+        <div style="min-width:180px;">
+            <h4 class="list-group-item-heading">{{ product.name }}</h4>
+            <p class="list-group-item-text">{{ product.price|currency}}</p>
+        </div>
+        <span>
+            <img [src]="product.imagePath" alt="{{  product.name }}" style="height: 75px;
+            margin-top: 7.5px; margin-right: 12.5px;
+            width: 75px;"/>
+        </span>
+    </a>
+    <button class="btn-delele btn btn-danger" style="position: absolute;top: 0;
+    right: 0;
+    border-radius: 0; z-index: 999;" (click)="deleteProduct()">X</button>
+</div>

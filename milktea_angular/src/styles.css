@@ -1,1 +1,52 @@
-/* You can add global styles to this file, and also import other style files */
+
+
+@import 'assets/css/about.css';
+@import 'assets/css/bootstrap.css';
+@import 'assets/css/checkout.css';
+@import 'assets/css/contact.css';
+@import 'assets/css/creditly.css';
+@import 'assets/css/easy-responsive-tabs.css';
+@import 'assets/css/flexslider.css';
+@import 'assets/css/jquery-ui1.css';
+@import 'assets/css/shop.css';
+@import 'assets/css/style.css';
+@import 'assets/css/style7.css';
+@import 'assets/css/sb-admin-2.min.css';
+@import 'assets/vendor/fontawesome-free/css/all.min.css';
+
+.mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle{
+    border-color:#FB383B; 
+  }
+  
+  .mat-radio-button.mat-accent .mat-radio-inner-circle{
+    color:#FB383B;
+    background-color:#FB383B;
+  }
+  
+  .mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element {
+      background-color:#FB383B;
+  }
+  
+
+
+  .tmp{
+    padding: 1em;
+    background: #fb383b;
+    font-size: 1em;
+    color: #fff;
+    text-transform: uppercase;
+    text-align: center;
+    margin: 0 0 2em;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    line-height: 1.1;
+    box-sizing: border-box;
+    display: block;
+    margin-block-start: 1.33em;
+    margin-block-end: 1.33em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    border-radius: 0px;
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

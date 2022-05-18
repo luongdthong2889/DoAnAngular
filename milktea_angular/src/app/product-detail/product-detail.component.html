@@ -1,0 +1,164 @@
+<div class="ads-grid_shop">
+    <div class="shop_inner_inf">
+        <div class="col-md-4 single-right-left ">
+            <div class="grid images_3_of_2">
+                <div class="flexslider">
+                    <div class="thumb-image"> <img [src]="product.imagePath" data-imagezoom="true" class="img-responsive"> </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8 single-right-left simpleCart_shelfItem">
+            <h3>{{ product.name }}</h3>
+            <div class="rating1">
+                <ul class="stars">
+                    <li><a style="cursor: pointer;"><i class="fa fa-star" aria-hidden="true"></i></a></li>
+                    <li><a style="cursor: pointer;"><i class="fa fa-star" aria-hidden="true"></i></a></li>
+                    <li><a style="cursor: pointer;"><i class="fa fa-star" aria-hidden="true"></i></a></li>
+                    <li><a style="cursor: pointer;"><i class="fa fa-star-half-o" aria-hidden="true"></i></a></li>
+                    <li><a style="cursor: pointer;"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
+                </ul>
+            </div>
+            <p><span class="item_price">{{product.price|currency}}</span></p>
+            
+            <div class="color-quality">
+                <div class="color-quality-right">
+                    <h5>Size :</h5>
+                    <select id="country1"  class="frm-field required sect" [(ngModel)]="sizeSelected" (ngModelChange)='onSizeSelected($event)'>
+                        <option *ngFor="let size of sizes" [value]="size.name">{{size.name}}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="occasional">
+                <h5>Types :</h5>
+                <mat-radio-group [(ngModel)]="typeSelected" >
+                    <mat-radio-button name="type.name" style="padding-right: 20px;" *ngFor="let type of types" [value]="type.name">{{type.name}}</mat-radio-button>
+                </mat-radio-group>
+                <div class="clearfix"> </div>
+            </div>
+            <div class="occasion-cart">
+                <div class="shoe single-item single_page_b">
+                    <input type="submit" name="submit" value="Add to cart" (click)="addToCart()" class="button add">
+                </div>
+
+            </div>
+            <ul class="social-nav model-3d-0 footer-social social single_page">
+                <li class="share">Share On : </li>
+                <li>
+                    <a href="#" class="facebook">
+                        <div class="front"><i class="fa fa-facebook" aria-hidden="true"></i></div>
+                        <div class="back"><i class="fa fa-facebook" aria-hidden="true"></i></div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="twitter">
+                        <div class="front"><i class="fa fa-twitter" aria-hidden="true"></i></div>
+                        <div class="back"><i class="fa fa-twitter" aria-hidden="true"></i></div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="instagram">
+                        <div class="front"><i class="fa fa-instagram" aria-hidden="true"></i></div>
+                        <div class="back"><i class="fa fa-instagram" aria-hidden="true"></i></div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="pinterest">
+                        <div class="front"><i class="fa fa-linkedin" aria-hidden="true"></i></div>
+                        <div class="back"><i class="fa fa-linkedin" aria-hidden="true"></i></div>
+                    </a>
+                </li>
+            </ul>
+
+        </div>
+        <div class="clearfix"> </div>
+        <!--/tabs-->
+        <div class="responsive_tabs">
+            <div id="horizontalTab">
+                <mat-tab-group id="horizontalTab">
+                    <mat-tab label="Description">
+                        <!--/tab_one-->
+						<div class="resp-tabs-container">
+                            <div class="tab1">
+
+                                <div class="single_page">
+                                    <h6>{{product.name}}</h6>
+                                    <p>{{product.description}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </mat-tab>
+                    <mat-tab label="Reviews">
+                        <div class="resp-tabs-container">
+                            <div class="tab2">
+                                <div class="single_page">
+                                    <div class="bootstrap-tab-text-grids">
+                                        <div class="bootstrap-tab-text-grid">
+                                            <div class="bootstrap-tab-text-grid-left">
+                                                <img src="../../assets/images/admin.jpg" alt=" " class="img-responsive">
+                                            </div>
+                                            <div class="bootstrap-tab-text-grid-right">
+                                                <ul>
+                                                    <li><a href="#">Admin</a></li>
+                                                    <li><a href="#"><i class="fa fa-reply-all" aria-hidden="true"></i> Reply</a></li>
+                                                </ul>
+                                                <div>
+                                                    <p>
+                                                        This is the best shoe I have ever bought, very comfortable to wear, very cheap price. Obviously, this is my store. 
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="clearfix"> </div>
+                                        </div>
+                                        <div class="add-review">
+                                            <h4>add a review</h4>
+                                            <form action="#" method="post">
+                                                <input type="text" name="Name" required="Name">
+                                                <input type="email" name="Email" required="Email">
+                                                <textarea name="Message" required=""></textarea>
+                                                <input type="submit" value="SEND">
+                                            </form>
+                                        </div>
+                                    </div>
+    
+                                </div>
+                            </div>
+                        </div>
+                    </mat-tab>
+                    <mat-tab label="Information">
+                        <div class="resp-tabs-container">
+                            <div class="tab3">
+
+                                <div class="single_page">
+                                    <h6>{{product.name}}</h6>
+                                    <p>{{product.information}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </mat-tab>
+                </mat-tab-group>
+            </div>
+        </div>
+        <!--//tabs-->
+        <!-- /new_arrivals -->
+        <div class="new_arrivals">
+            <h3>Featured Products</h3>
+            <!-- /womens -->
+                    <div class="product-sec1" style="display: flex;">
+                        <app-product-item
+                        *ngFor="let product of p;let i=index"
+                        [product]="product"
+                        [index]=i
+                        style="flex: 1;"
+                        >
+                        </app-product-item>
+                    </div>
+            <!-- //womens -->
+            <div class="clearfix"></div>
+        </div>
+        <!--//new_arrivals-->
+    </div>
+</div>
+<!-- //top products -->
+<app-newsletter></app-newsletter>

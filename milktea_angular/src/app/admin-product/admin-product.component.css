@@ -1,0 +1,8 @@
+button{
+    width: 100px;
+    height: 40px;
+    font-size: 1.4rem;
+}
+.search-hotel form input[type="submit"]{
+    background: url(../../assets/images/search.png) no-repeat 7px 6px #2E59D9;
+}

@@ -1,0 +1,40 @@
+<div class="left-ads-display">
+    <div style="display: flex;">
+        <div class="col-md-6 shop_left">
+            <img src="../../assets/images/banner3.jpg" alt="">
+            <h6>40% off</h6>
+        </div>
+        <div class="col-md-6 shop_right">
+            <img src="../../assets/images/banner2.jpg" alt="">
+            <h6>50% off</h6>
+        </div> 
+    </div>
+   
+    <div class="wrapper_top_shop">
+   
+        <div class="clearfix"></div>
+        <div class="product-sec1">
+            <app-product-item
+            *ngFor="let product of products|filter:searchText| paginate: { itemsPerPage: count, currentPage: p }"
+            [product]="product"
+            [index]=product.id
+            class="col-md-4"
+            style="margin-bottom: 18px;"
+            >
+            </app-product-item>
+        </div>
+    </div>
+    <div class="text-right">
+        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+      </div>
+    <div style="display: flex;">
+        <div class="col-md-6 shop_left shp">
+            <img src="../../assets/images/banner4.jpg" alt="">
+            <h6>21% off</h6>
+        </div>
+        <div class="col-md-6 shop_right shp">
+            <img src="../../assets/images/banner1.jpg" alt="">
+            <h6>31% off</h6>
+        </div>
+    </div>   
+</div>    
