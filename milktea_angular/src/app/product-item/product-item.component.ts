@@ -18,8 +18,8 @@ export class ProductItemComponent implements OnInit {
   
   }
   addToCartFromPI(){
-    this.product.size='EU 35';
-    this.product.types='Casual Shoes';
+    this.product.size='M';
+    this.product.types='Latte Series';
     this.cartService.addToCart(this.product,1);
   }
 }

@@ -16,11 +16,10 @@ export class ProductDetailComponent implements OnInit {
   id:number;
   sizeSelected:string;
   sizes:SubDetail[]=[
-    new SubDetail('EU 35'),new SubDetail('EU 35.5'),new SubDetail('EU 36'),new SubDetail('EU 36.5'),new SubDetail('EU 37.5'),
-    new SubDetail('EU 38'),new SubDetail('EU 38.5'),new SubDetail('EU 39'),new SubDetail('EU 40'),new SubDetail('EU 41'),new SubDetail('EU 42')
+    new SubDetail('M'),new SubDetail('L')
   ];
   types:SubDetail[]=[
-    new SubDetail('Casual Shoes'),new SubDetail('Sneakers'),new SubDetail('Formal Shoes')
+    new SubDetail('Latte Series'),new SubDetail('Thức uống đặc biệt'),new SubDetail('Trà sữa'),new SubDetail('Trà nguyên chất'),new SubDetail('Thức uống sáng tạo'),new SubDetail('Thức uống đá xay'),new SubDetail('Topping')
   ]
   type:SubDetail;
   typeSelected:string;
@@ -33,8 +32,8 @@ export class ProductDetailComponent implements OnInit {
         this.product=this.productService.getProduct(this.id);
       }
     )
-    this.sizeSelected='EU 35';
-    this.typeSelected='Casual Shoes';
+    this.sizeSelected='M';
+    this.typeSelected='Latte Series';
     this.p=this.productService.getFeatureProducts();
     this.router.events.subscribe((evt)=>{
       if(!(evt instanceof NavigationEnd)){

@@ -11,6 +11,12 @@ export class AboutComponent implements OnInit {
   tabOne:any;
   tabTwo:any;
   tabThree:any;
+  tab2014:any;
+  tab2015:any;
+  tab2016:any;
+  tab2017:any;
+  tab2018:any;
+  tab2019:any;
   ngOnInit(): void {
     this.tabOne='block';
   }
@@ -48,6 +54,96 @@ export class AboutComponent implements OnInit {
     else
     {
       this.tabThree='block';
+    }
+  }
+  tab14(){
+    this.tab2015='none';
+    this.tab2016='none';
+    this.tab2017='none';
+    this.tab2018='none';
+    this.tab2019='none';
+    if(this.tab2014=='block')
+    {
+      this.tab2014='none';
+    }
+    else
+    {
+      this.tab2014='block';
+    }
+  }
+  tab15(){
+    this.tab2014='none';
+    this.tab2016='none';
+    this.tab2017='none';
+    this.tab2018='none';
+    this.tab2019='none';
+    if(this.tab2015=='block')
+    {
+      this.tab2015='none';
+    }
+    else
+    {
+      this.tab2015='block';
+    }
+  }
+  tab16(){
+    this.tab2014='none';
+    this.tab2015='none';
+    this.tab2017='none';
+    this.tab2018='none';
+    this.tab2019='none';
+    if(this.tab2016=='block')
+    {
+      this.tab2016='none';
+    }
+    else
+    {
+      this.tab2016='block';
+    }
+  }
+  tab17(){
+    this.tab2014='none';
+    this.tab2015='none';
+    this.tab2016='none';
+    this.tab2018='none';
+    this.tab2019='none';
+    if(this.tab2017=='block')
+    {
+      this.tab2017='none';
+    }
+    else
+    {
+      this.tab2017='block';
+    }
+  }
+  tab18(){
+    this.tab2014='none';
+    this.tab2015='none';
+    this.tab2016='none';
+    this.tab2017='none';
+    this.tab2019='none';
+    if(this.tab2018=='block')
+    {
+      this.tab2018='none';
+    }
+    else
+    {
+      this.tab2018='block';
+    }
+  }
+  tab19(){
+    this.tab2014='none';
+    this.tab2015='none';
+    this.tab2016='none';
+    this.tab2017='none';
+    this.tab2018='none';
+    if(this.tab2019=='block')
+    {
+      this.tab2019='none';
+    }
+    else
+    {
+      this.tab2019='block';
     }
   }
 
