@@ -10,7 +10,7 @@ export class LoginService{
 
     Login(name:string,password:string){
         if(name=='admin' && password=='admin' ){
-            this.router.navigate(['../admin'])
+            this.router.navigate(['../admin/product'])
             this.logged=true;
           }
     }

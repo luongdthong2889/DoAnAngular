@@ -5,7 +5,7 @@
     class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
         <div style="min-width:180px;">
             <h4 class="list-group-item-heading">{{ product.name }}</h4>
-            <p class="list-group-item-text">{{ product.price|currency}}</p>
+            <p class="list-group-item-text">{{ product.price|currency: "VND"}}</p>
         </div>
         <span>
             <img [src]="product.imagePath" alt="{{  product.name }}" style="height: 75px;
