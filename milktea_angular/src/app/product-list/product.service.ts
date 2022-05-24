@@ -8,11 +8,11 @@ import { Category } from '../product/cate.model';
 export class ProductService {
   category: Category[] = [
     new Category(1, 'Latte Series'),
-    new Category(2, 'Thức uống đặc biệt'),
-    new Category(3, 'Trà sữa'),
-    new Category(4, 'Trà nguyên chất'),
-    new Category(5, 'Thức uống sáng tạo'),
-    new Category(6, 'Thức uống đá xay'),
+    new Category(2, 'Thức Uống Đặc Biệt'),
+    new Category(3, 'Trà Sữa'),
+    new Category(4, 'Trà Nguyên Chất'),
+    new Category(5, 'Thức Uống Sáng Tạo'),
+    new Category(6, 'Thức Uống Đá Xay'),
     new Category(7, 'Topping'),
   ];
   products: Product[] = [
@@ -102,7 +102,7 @@ export class ProductService {
     ),
     new Product(
       8,
-      'Trà Bí Đao Gong Cha',
+      'Trà Bí Đao Downy',
       53000,
       'https://gongcha.com.vn/wp-content/uploads/2018/02/Tr%C3%A0-B%C3%AD-%C4%90ao-Milkfoam-2.png',
       'Một trong những dòng thức uống nổi bật với nhiều lựa chọn độc đáo. Đặc biệt với Trà sữa Oolong 3J, Trà sữa pudding đậu đỏ với topping đa dạng mang đậm bản sắc Đài Loan.Loại trà đặc trưng của vùng đồi núi Alisan ở Đài Loan, hương trà thơm hòa quyện cùng lớp kem sữa mặn.',
@@ -112,7 +112,7 @@ export class ProductService {
     ),
     new Product(
       9,
-      'Trà Oolong Gong Cha',
+      'Trà Oolong Downy',
       53000,
       'https://gongcha.com.vn/wp-content/uploads/2018/02/Tr%C3%A0-Oolong-Milkfoam-3.png',
       'Một trong những dòng thức uống nổi bật với nhiều lựa chọn độc đáo. Đặc biệt với Trà sữa Oolong 3J, Trà sữa pudding đậu đỏ với topping đa dạng mang đậm bản sắc Đài Loan.Loại trà đặc trưng của vùng đồi núi Alisan ở Đài Loan, hương trà thơm hòa quyện cùng lớp kem sữa mặn.',
@@ -122,7 +122,7 @@ export class ProductService {
     ),
     new Product(
       10,
-      'Trà Alisan Gong Cha',
+      'Trà Alisan Downy',
       61000,
       'https://gongcha.com.vn/wp-content/uploads/2018/02/Tr%C3%A0-Alisan-Milkfoam-2.png',
       'Một trong những dòng thức uống nổi bật với nhiều lựa chọn độc đáo. Đặc biệt với Trà sữa Oolong 3J, Trà sữa pudding đậu đỏ với topping đa dạng mang đậm bản sắc Đài Loan.Loại trà đặc trưng của vùng đồi núi Alisan ở Đài Loan, hương trà thơm hòa quyện cùng lớp kem sữa mặn.',
@@ -132,7 +132,7 @@ export class ProductService {
     ),
     new Product(
       11,
-      'Trà Đen Gong Cha',
+      'Trà Đen Downy',
       57000,
       'https://gongcha.com.vn/wp-content/uploads/2018/02/Tr%C3%A0-%C4%90en-Milkfoam-2.png',
       'Một trong những dòng thức uống nổi bật với nhiều lựa chọn độc đáo. Đặc biệt với Trà sữa Oolong 3J, Trà sữa pudding đậu đỏ với topping đa dạng mang đậm bản sắc Đài Loan.Loại trà đặc trưng của vùng đồi núi Alisan ở Đài Loan, hương trà thơm hòa quyện cùng lớp kem sữa mặn.',
@@ -142,7 +142,7 @@ export class ProductService {
     ),
     new Product(
       12,
-      'Trà Xanh Gong Cha',
+      'Trà Xanh Downy',
       49000,
       'https://gongcha.com.vn/wp-content/uploads/2018/02/Tra%CC%80-xanh-GC.png',
       'Vị trà Xanh (Lục Trà) thơm nhẹ và thanh mát, hòa cùng lớp kem sữa mặn.Đặc biệt với Trà sữa Oolong 3J, Trà sữa pudding đậu đỏ với topping đa dạng mang đậm bản sắc Đài Loan.Loại trà đặc trưng của vùng đồi núi Alisan ở Đài Loan, hương trà thơm hòa quyện cùng lớp kem sữa mặn.',

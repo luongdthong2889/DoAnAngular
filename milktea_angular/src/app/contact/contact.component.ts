@@ -13,6 +13,6 @@ export class ContactComponent implements OnInit {
   ngOnInit(): void {
   }
   onContact(){
-    this.toastr.success('Your Message has been sent','Success')
+    this.toastr.success('Tin nhắn của bạn đã được gửi','Thành Công')
   }
 }

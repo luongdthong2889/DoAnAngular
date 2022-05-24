@@ -19,7 +19,8 @@ export class ProductItemComponent implements OnInit {
   }
   addToCartFromPI(){
     this.product.size='M';
-    this.product.types='Latte Series';
+    this.product.types='100%';
+    this.product.sugarTypes='100%';
     this.cartService.addToCart(this.product,1);
   }
 }

@@ -23,7 +23,7 @@ export class CartComponent implements OnInit {
 
   ngOnInit(): void {
     this.cart = this.cartService.getCart();
-    this.typeSelect='Cash on Deliver';
+    this.typeSelect='COD';
     this.payDisable='none';
     this.onCheckCartLenght();
     this.onUpdateTotal();
@@ -45,9 +45,9 @@ export class CartComponent implements OnInit {
     })
   }
   private initForm1(){
-    let cardName='a';
-    let cardNumber='0937928473';
-    let bankName='HuuTriBanking';
+    let cardName='Lương Đình Thông';
+    let cardNumber='0975056938';
+    let bankName='Techcombank';
     this.paymentForm= new FormGroup({
       'cardName': new FormControl(cardName,Validators.required),
       'cardNumber': new FormControl(cardNumber,[Validators.required,Validators.pattern(/^((\\+91-?)|0)?[0-9]{10}$/)]),
@@ -55,13 +55,13 @@ export class CartComponent implements OnInit {
     })
   }
   typesPay:SubDetail[]=[
-    new SubDetail('Cash on Deliver'),new SubDetail('Credit/Debit')
+    new SubDetail('COD'),new SubDetail('Thẻ tín dụng/Thẻ ghi nợ')
   ]
   typeSelect!:string;
   payDisable:any;
   payDetail:any;
   showChange(){
-    if(this.typeSelect=='Cash on Deliver')
+    if(this.typeSelect=='COD')
     {
       this.payDisable='none';
       this.initForm1();

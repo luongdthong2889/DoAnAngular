@@ -19,10 +19,14 @@ export class ProductDetailComponent implements OnInit {
     new SubDetail('M'),new SubDetail('L')
   ];
   types:SubDetail[]=[
-    new SubDetail('Latte Series'),new SubDetail('Thức uống đặc biệt'),new SubDetail('Trà sữa'),new SubDetail('Trà nguyên chất'),new SubDetail('Thức uống sáng tạo'),new SubDetail('Thức uống đá xay'),new SubDetail('Topping')
-  ]
+    new SubDetail('100%'),new SubDetail('70%'),new SubDetail('50%'),new SubDetail('30%'),new SubDetail('0%')
+  ];
+  sugarTypes:SubDetail[]=[
+    new SubDetail('100%'),new SubDetail('70%'),new SubDetail('50%'),new SubDetail('30%'),new SubDetail('0%')
+  ];
   type:SubDetail;
   typeSelected:string;
+  sugarTypeSelected: string;
   constructor(private productService:ProductService,private cartService:CartService,private router:Router,private route:ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -33,7 +37,8 @@ export class ProductDetailComponent implements OnInit {
       }
     )
     this.sizeSelected='M';
-    this.typeSelected='Latte Series';
+    this.typeSelected='100%';
+    this.sugarTypeSelected='100%';
     this.p=this.productService.getFeatureProducts();
     this.router.events.subscribe((evt)=>{
       if(!(evt instanceof NavigationEnd)){
@@ -51,6 +56,7 @@ export class ProductDetailComponent implements OnInit {
   addToCart(){
     this.product.size=this.sizeSelected;
     this.product.types=this.typeSelected;
+    this.product.sugarTypes=this.sugarTypeSelected;
     this.cartService.addToCart(this.product,1)
   }
 }

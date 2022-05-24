@@ -19,7 +19,7 @@
                     <li><a style="cursor: pointer;"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
                 </ul>
             </div>
-            <p><span class="item_price">{{product.price|currency: "VND": "VND"}}</span></p>
+            <p><span class="item_price">{{product.price|currency: "VND"}}</span></p>
             
             <div class="color-quality">
                 <div class="color-quality-right">
@@ -30,20 +30,24 @@
                 </div>
             </div>
             <div class="occasional">
-                <h5>Types :</h5>
+                <h5>Mức đá :</h5>
                 <mat-radio-group [(ngModel)]="typeSelected" >
                     <mat-radio-button name="type.name" style="padding-right: 20px;" *ngFor="let type of types" [value]="type.name">{{type.name}}</mat-radio-button>
+                </mat-radio-group>
+                <h5>Mức đường :</h5>
+                <mat-radio-group [(ngModel)]="sugarTypeSelected" >
+                    <mat-radio-button name="type.name" style="padding-right: 20px;" *ngFor="let type of sugarTypes" [value]="type.name">{{type.name}}</mat-radio-button>
                 </mat-radio-group>
                 <div class="clearfix"> </div>
             </div>
             <div class="occasion-cart">
                 <div class="shoe single-item single_page_b">
-                    <input type="submit" name="submit" value="Add to cart" (click)="addToCart()" class="button add">
+                    <input type="submit" name="submit" value="Thêm vào giỏ hàng" (click)="addToCart()" class="button add">
                 </div>
 
             </div>
             <ul class="social-nav model-3d-0 footer-social social single_page">
-                <li class="share">Share On : </li>
+                <li class="share">Chia sẻ : </li>
                 <li>
                     <a href="#" class="facebook">
                         <div class="front"><i class="fa fa-facebook" aria-hidden="true"></i></div>
@@ -76,7 +80,7 @@
         <div class="responsive_tabs">
             <div id="horizontalTab">
                 <mat-tab-group id="horizontalTab">
-                    <mat-tab label="Description">
+                    <mat-tab label="MÔ TẢ">
                         <!--/tab_one-->
 						<div class="resp-tabs-container">
                             <div class="tab1">
@@ -88,7 +92,7 @@
                             </div>
                         </div>
                     </mat-tab>
-                    <mat-tab label="Reviews">
+                    <mat-tab label="ĐÁNH GIÁ">
                         <div class="resp-tabs-container">
                             <div class="tab2">
                                 <div class="single_page">
@@ -100,11 +104,11 @@
                                             <div class="bootstrap-tab-text-grid-right">
                                                 <ul>
                                                     <li><a href="#">Admin</a></li>
-                                                    <li><a href="#"><i class="fa fa-reply-all" aria-hidden="true"></i> Reply</a></li>
+                                                    <li><a href="#"><i class="fa fa-reply-all" aria-hidden="true"></i> Trả lời</a></li>
                                                 </ul>
                                                 <div>
                                                     <p>
-                                                        This is the best shoe I have ever bought, very comfortable to wear, very cheap price. Obviously, this is my store. 
+                                                        Đây là đồ uống ngon nhất mà mình mua được, uống rất ngon, giá cực rẻ. Rõ ràng, đây là cửa hàng ưa thích của mình. 
                                                     </p>
                                                 </div>
                                             </div>
@@ -112,12 +116,12 @@
                                             <div class="clearfix"> </div>
                                         </div>
                                         <div class="add-review">
-                                            <h4>add a review</h4>
+                                            <h4>Thêm đánh giá</h4>
                                             <form action="#" method="post">
                                                 <input type="text" name="Name" required="Name">
                                                 <input type="email" name="Email" required="Email">
                                                 <textarea name="Message" required=""></textarea>
-                                                <input type="submit" value="SEND">
+                                                <input type="submit" value="GỬI">
                                             </form>
                                         </div>
                                     </div>
@@ -126,7 +130,7 @@
                             </div>
                         </div>
                     </mat-tab>
-                    <mat-tab label="Information">
+                    <mat-tab label="THÔNG TIN">
                         <div class="resp-tabs-container">
                             <div class="tab3">
 
@@ -143,7 +147,7 @@
         <!--//tabs-->
         <!-- /new_arrivals -->
         <div class="new_arrivals">
-            <h3>Featured Products</h3>
+            <h3>Thức uống theo mùa</h3>
             <!-- /womens -->
                     <div class="product-sec1" style="display: flex;">
                         <app-product-item

@@ -23,12 +23,12 @@ export class PaymentComponent implements OnInit {
     this.totalPrice=0;
     this.cart.forEach(i => {
       this.totalPrice+=i.price;
-      console.log(i.product.name + i.product.size + i.product.types);
+      console.log(i.product.name + 'Size' + i.product.size + i.product.types + 'Đá' + i.product.sugarTypes + 'Đường');
     });
   }
   clickPayment(){
     this.cartService.cartClear();
-    this.toastr.success('Payment Complete','Payment');
+    this.toastr.success('Hoàn tất thanh toán','Thanh toán');
   }
 
 }
