@@ -1,14 +1,14 @@
 <div class="side-bar">
    <div class="search-hotel">
-    <h3 class="agileits-sear-head">Tìm Kiếm Ở Đây..</h3>
+    <h3 class="agileits-sear-head">Tìm kiếm..</h3>
     <form action="#" method="post">
-        <input type="search" placeholder="Nhập tên món..." name="search"  [(ngModel)]="searchText" (ngModelChange)="searchTextChange()">
+        <input type="search" placeholder="Tên món..." name="search"  [(ngModel)]="searchText" (ngModelChange)="searchTextChange()">
         <input type="submit" value=" ">
     </form>
 </div>
     <!--preference -->
     <div class="left-side">
-        <h3 class="agileits-sear-head">Danh Mục</h3>
+        <h3 class="agileits-sear-head">Danh mục món</h3>
         <!-- <h3 class="agileits-sear-head">Occasion</h3> -->
         <ul style="cursor: pointer;" [routerLink]="['/product',i.id]" routerLinkActive="router-link-active" *ngFor="let i of cate">
             <li><a>{{i.name}}</a></li>
@@ -17,7 +17,7 @@
     <!-- // preference -->
     <!-- discounts -->
     <div class="left-side">
-        <h3 class="agileits-sear-head">Giảm Giá</h3>
+        <h3 class="agileits-sear-head">Giảm giá</h3>
         <ul>
             <li>
                 <input type="checkbox" class="checked">
@@ -48,7 +48,7 @@
     <!-- //discounts -->
     <!-- reviews -->
     <div class="customer-rev left-side">
-        <h3 class="agileits-sear-head">Đánh Giá Khách Hàng</h3>
+        <h3 class="agileits-sear-head">Đánh giá của khách hàng</h3>
         <ul>
             <li>
                 <a href="#">
@@ -105,7 +105,7 @@
     <!-- //reviews -->
     <!-- deals -->
     <div class="deal-leftmk left-side">
-        <h3 class="agileits-sear-head">Thức Uống Theo Mùa</h3>
+        <h3 class="agileits-sear-head">Thức uống theo mùa</h3>
         <div class="special-sec1" style="cursor: pointer;" [routerLink]="['/detail',spPro.id]" routerLinkActive="router-link-active"  *ngFor="let spPro of specialDeal">
             <div class="col-xs-4 img-deals">
                 <img src={{spPro.imagePath}} alt="">

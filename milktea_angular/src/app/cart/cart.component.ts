@@ -46,12 +46,14 @@ export class CartComponent implements OnInit {
   }
   private initForm1(){
     let cardName='Lương Đình Thông';
-    let cardNumber='0975056938';
-    let bankName='Techcombank';
+    let cardNumber='097050560938';
+    let securityCode='289';
+    let expirationDate='09/22';
     this.paymentForm= new FormGroup({
       'cardName': new FormControl(cardName,Validators.required),
-      'cardNumber': new FormControl(cardNumber,[Validators.required,Validators.pattern(/^((\\+91-?)|0)?[0-9]{10}$/)]),
-      'bankName': new FormControl(bankName,Validators.required)
+      'cardNumber': new FormControl(cardNumber,[Validators.required,Validators.pattern(/^((\\+91-?)|0)?[0-9]{12}$/)]),
+      'securityCode': new FormControl(securityCode,[Validators.required,Validators.pattern(/^((\\+91-?)|0)?[0-9]{3}$/)]),
+      'expirationDate': new FormControl(expirationDate,Validators.required)
     })
   }
   typesPay:SubDetail[]=[
@@ -70,11 +72,13 @@ export class CartComponent implements OnInit {
       this.payDisable='block';
       let cardName='';
       let cardNumber='';
-      let bankName='';
+      let securityCode ='';
+      let expirationDate='';
       this.paymentForm=new FormGroup({
         'cardName': new FormControl(cardName,Validators.required),
-        'cardNumber': new FormControl(cardNumber,[Validators.required,Validators.pattern(/^((\\+91-?)|0)?[0-9]{10}$/)]),
-        'bankName': new FormControl(bankName,Validators.required)
+        'cardNumber': new FormControl(cardNumber,[Validators.required,Validators.pattern(/^((\\+91-?)|0)?[0-9]{12}$/)]),
+        'securityCode': new FormControl(securityCode,[Validators.required,Validators.pattern(/^((\\+91-?)|0)?[0-9]{3}$/)]),
+        'expirationDate': new FormControl(expirationDate,Validators.required)
       })
     }
   }

@@ -16,17 +16,19 @@
                             <span class="text-600 text-110 text-black align-middle">{{ user.name }}</span>
                         </div>
                         <div class="text-m2">
-                            <div>
-                                <span class="text-sm text-grey-m2 align-middle">Tỉnh/ Thành phố: </span>
-                                <span class="text-600 text-110 text-black align-middle">{{ user.city }}</span>
+
+
+                            <div class="my-1">
+                                <span class="text-sm text-grey-m2 align-middle">Số điện thoại: </span>
+                                <span class="text-600 text-110 text-black align-middle">{{ user.phone }}</span>
                             </div>
                             <div >
                                 <span class="text-sm text-grey-m2 align-middle">Địa chỉ: </span>
                                 <span class="text-600 text-110 text-black align-middle">{{ user.address }}</span>
                             </div>
-                            <div class="my-1">
-                                <span class="text-sm text-grey-m2 align-middle">Số điện thoại: </span>
-                                <span class="text-600 text-110 text-black align-middle">{{ user.phone }}</span>
+                            <div>
+                                <span class="text-sm text-grey-m2 align-middle">Thành phố: </span>
+                                <span class="text-600 text-110 text-black align-middle">{{ user.city }}</span>
                             </div>
                             <div class="my-1">
                                 <span class="text-sm text-grey-m2 align-middle">Thanh toán bằng: </span>
@@ -85,7 +87,7 @@
                             <h4>Cảm ơn bạn đã mua hàng</h4>
                         </span>
                         <div class="checkout-right-basket">
-                            <a [routerLink]="['/product']" routerLinkActive="router-link-active" (click)="clickPayment()">Thực hiện thanh toán</a>
+                            <a [routerLink]="['/product']" routerLinkActive="router-link-active" (click)="clickPayment()">THANH TOÁN</a>
                         </div>
                         
                     </div>

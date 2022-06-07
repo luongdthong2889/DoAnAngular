@@ -33,6 +33,7 @@ import { AdminProductItemComponent } from './admin-product-item/admin-product-it
 import { ProductEditComponent } from './product-edit/product-edit.component';
 import { SidebarModule } from 'ng-sidebar';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { CarouselModule } from 'ngx-bootstrap/carousel';
 
 
 
@@ -73,7 +74,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
     ReactiveFormsModule,
     Ng2SearchPipeModule,
     CommonModule,
-    NgxPaginationModule  
+    NgxPaginationModule,
+    CarouselModule 
   ],
   providers: [ProductService,CartService,PaymentService,LoginService],
   bootstrap: [AppComponent,HeaderComponent]
