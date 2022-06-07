@@ -6218,6 +6218,12 @@ button.close {
   content: '\203a';
 }
 .carousel-indicators {
+	right: 50%;
+	top: auto;
+	bottom: -10px;
+	margin-right: -19px;
+}
+.carousel-indicators {
   position: absolute;
   bottom: 10px;
   left: 50%;
@@ -6241,8 +6247,8 @@ button.close {
   border-radius: 10px;
 }
 .carousel-indicators .active {
-  width: 12px;
-  height: 12px;
+  /* width: 12px;
+  height: 12px; */
   margin: 0;
   background-color: #fff;
 }
