@@ -1,19 +1,10 @@
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
-
-<div class="page-content container">
     
 
-    <div class="container px-0">
-        <div class="row mt-4">
-            <div class="col-12 col-lg-10 offset-lg-1">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="text-center text-150">
-                            <i class="fa fa-money fa-2x text-m2 mr-1"></i>
-                            <span class="text-default-d3"> Thanh toán</span>
-                        </div>
-                    </div>
-                </div>
+    <div class="ads-grid_shop">
+		<div class="shop_inner_inf">
+			<div class="privacy about">
+                <h3>Thanh toán</h3>
                 <!-- .row -->
 
                 <hr class="row brc-default-l1 mx-n1 mb-4" />
@@ -48,7 +39,7 @@
 
                 <div class="mt-4">
                     <div class="row text-600 text-white bgc-default-tp1 py-25">
-                        <div class="d-none d-sm-block col-1">#</div>
+                        <div class="d-none d-sm-block col-1">STT</div>
                         <div class="col-9 col-sm-5">Tên Món</div>
                         <div class="d-none d-sm-block col-4 col-sm-2">Số Lượng</div>
                         <div class="d-none d-sm-block col-sm-2">Đơn Giá</div>
@@ -89,11 +80,16 @@
                     <hr />
 
                     <div class="btn-payment" >
-                        <span class="text-secondary-d1 text-105">Cảm ơn bạn đã mua hàng</span>
-                        <a [routerLink]="['/product']" routerLinkActive="router-link-active" (click)="clickPayment()"  class="tmp btn btn-danger btn-bold px-4 float-right mt-3 mt-lg-0">Thực hiện thanh toán</a>
+                        <span class="checkout-left" style="padding: 1em; font-size: 1em; color: #fb383b; text-transform: uppercase;
+                        text-align: center;">
+                            <h4>Cảm ơn bạn đã mua hàng</h4>
+                        </span>
+                        <div class="checkout-right-basket">
+                            <a [routerLink]="['/product']" routerLinkActive="router-link-active" (click)="clickPayment()">Thực hiện thanh toán</a>
+                        </div>
+                        
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
