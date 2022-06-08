@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { ProductService } from '../product-list/product.service';
 import { Product } from '../product/product.model';
+import { Database, set , ref, update } from '@angular/fire/database';
 
 @Component({
   selector: 'app-product-edit',
@@ -14,7 +15,7 @@ export class ProductEditComponent implements OnInit {
   id!: number;
   productForm!: FormGroup;
   editMode=false;
-  constructor(private route:ActivatedRoute,private router:Router,private productService:ProductService) { }
+  constructor(public database:Database,private route:ActivatedRoute,private router:Router,private productService:ProductService) { }
 
   ngOnInit(): void {
     this.route.params.subscribe(

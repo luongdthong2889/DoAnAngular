@@ -15,7 +15,8 @@ export class ProductListComponent implements OnInit {
   p: number = 1;
   count: number = 6;
   cateid:any;
-  constructor(private productService:ProductService,private activatedRoute:ActivatedRoute) { }
+  constructor(private productService:ProductService,private activatedRoute:ActivatedRoute) { 
+  }
 
   ngOnInit(): void {
     this.activatedRoute.paramMap.subscribe(params =>{

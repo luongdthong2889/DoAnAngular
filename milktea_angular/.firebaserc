@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "angularmilktea": {
+      "hosting": {
+        "milktea_angular": [
+          "angularmilktea"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "angularmilktea"
+  }
+}

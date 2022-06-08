@@ -13,8 +13,7 @@ export class AdminProductComponent implements OnInit {
   products!: Product[];
   searchText: any;
   constructor(private productService:ProductService,private router:Router,private route:ActivatedRoute) {
-
-   }
+  }
 
   ngOnInit(): void {
     this.products=this.productService.getProducts();   

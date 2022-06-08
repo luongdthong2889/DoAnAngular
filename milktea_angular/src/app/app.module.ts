@@ -34,6 +34,9 @@ import { ProductEditComponent } from './product-edit/product-edit.component';
 import { SidebarModule } from 'ng-sidebar';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { environment } from '../environments/environment';
+import { provideDatabase,getDatabase } from '@angular/fire/database';
 
 
 
@@ -75,7 +78,9 @@ import { CarouselModule } from 'ngx-bootstrap/carousel';
     Ng2SearchPipeModule,
     CommonModule,
     NgxPaginationModule,
-    CarouselModule 
+    CarouselModule,
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideDatabase(() => getDatabase()) 
   ],
   providers: [ProductService,CartService,PaymentService,LoginService],
   bootstrap: [AppComponent,HeaderComponent]

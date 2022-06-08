@@ -102,6 +102,16 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "milktea_angular:build:production",
+            "firebaseProject": "angularmilktea",
+            "firebaseHostingSite": "angularmilktea"
+          }
         }
       }
     }
