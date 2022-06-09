@@ -845,7 +845,7 @@ export class ProductService {
       information: newProduct.information,
       cateid: newProduct.cateid,
     });
-    alert('sửa thành công');
+    // alert('Sửa thành công');
   }
   addProduct(newProduct: Product) {
     let tmpID = false;
@@ -869,7 +869,7 @@ export class ProductService {
       information: newProduct.information,
       cateid: newProduct.cateid,
     });
-    alert('Thêm thành công');
+    // alert('Thêm thành công');
   }
 
   deleteProduct(index: number) {
@@ -880,6 +880,6 @@ export class ProductService {
       }
     }
     remove(ref(this.database, 'products/' + index));
-    alert('Xóa thành công');
+    // alert('Xóa thành công');
   }
 }
