@@ -20,7 +20,7 @@ export class LoginService{
     }
     CheckLogin(){
       if(this.logged){
-          this.router.navigate(['../admin']);
+          this.router.navigate(['../admin/product']);
       }else{
         this.router.navigate(['../login']);
       }
