@@ -37,6 +37,7 @@ import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideDatabase,getDatabase } from '@angular/fire/database';
+import { FacebookModule } from 'ngx-facebook';
 
 
 
@@ -79,6 +80,7 @@ import { provideDatabase,getDatabase } from '@angular/fire/database';
     CommonModule,
     NgxPaginationModule,
     CarouselModule,
+    FacebookModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideDatabase(() => getDatabase()) 
   ],

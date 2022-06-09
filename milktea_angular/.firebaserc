@@ -1,14 +1,14 @@
 {
+  "projects": {
+    "default": "milkteaangular-b1f72"
+  },
   "targets": {
-    "angularmilktea": {
+    "milkteaangular-b1f72": {
       "hosting": {
         "milktea_angular": [
-          "angularmilktea"
+          "milkteaangular-b1f72"
         ]
       }
     }
-  },
-  "projects": {
-    "default": "angularmilktea"
   }
 }

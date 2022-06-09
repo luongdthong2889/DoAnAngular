@@ -1,13 +1,13 @@
 export const environment = {
   firebase: {
-    projectId: 'angularmilktea',
-    appId: '1:775231416711:web:49efe2b01fbd773e5c4b22',
-    databaseURL: 'https://angularmilktea-default-rtdb.asia-southeast1.firebasedatabase.app',
-    storageBucket: 'angularmilktea.appspot.com',
-    apiKey: 'AIzaSyCPh1to6zC0_0TH-VC4qe5da8Z2VjTQE64',
-    authDomain: 'angularmilktea.firebaseapp.com',
-    messagingSenderId: '775231416711',
-    measurementId: 'G-YDZ9MKFWMV',
+    apiKey: "AIzaSyChgjlYxJbhUciittWLb6sJUknSLcOFiis",
+    authDomain: "milkteaangular-b1f72.firebaseapp.com",
+    projectId: "milkteaangular-b1f72",
+    storageBucket: "milkteaangular-b1f72.appspot.com",
+    messagingSenderId: "132648611943",
+    appId: "1:132648611943:web:fb48df9868d8b44c02a4c2",
+    databaseURL: 'https://milkteaangular-b1f72-default-rtdb.asia-southeast1.firebasedatabase.app',
+    measurementId: "G-QGQXQD70H0"
   },
   production: true
 };

@@ -1,5 +1,6 @@
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
+import { FacebookService, InitParams } from 'ngx-facebook';
 
 @Component({
   selector: 'app-header',
@@ -12,9 +13,14 @@ export class HeaderComponent implements OnInit {
   _toggleSidebar() {
     this._opened = !this._opened;
   }
-  constructor(public router:Router) { }
+  constructor(public router:Router,private facebookService: FacebookService) { }
 
   ngOnInit(): void {
+    this.initFacebookService();
+  }
+  private initFacebookService(): void {
+    const initParams: InitParams = { xfbml:true, version:'v3.2'};
+    this.facebookService.init(initParams);
   }
 
 }

@@ -40,13 +40,13 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kb",
-                  "maximumError": "1mb"
+                  "maximumWarning": "4mb",
+                  "maximumError": "5mb"
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "2kb",
-                  "maximumError": "4kb"
+                  "maximumWarning": "4mb",
+                  "maximumError": "5mb"
                 }
               ],
               "fileReplacements": [
@@ -109,8 +109,8 @@
             "prerender": false,
             "ssr": false,
             "browserTarget": "milktea_angular:build:production",
-            "firebaseProject": "angularmilktea",
-            "firebaseHostingSite": "angularmilktea"
+            "firebaseProject": "milkteaangular-b1f72",
+            "firebaseHostingSite": "milkteaangular-b1f72"
           }
         }
       }
