@@ -10,10 +10,11 @@ import { CarouselConfig } from 'ngx-bootstrap/carousel';
   ]
 })
 export class HomeComponent implements OnInit {
-
+  
   constructor() { }
 
   ngOnInit(): void {
+    
   }
 
 }
