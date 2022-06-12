@@ -8,7 +8,7 @@ export class Product{
     public types!:string;
     public information:string;
     public cateid:number;
-  sugarTypes: string;
+    public sugarTypes: string;
     constructor(id:number,name:string,price:number,imagePath:string,description:string,information:string,cateid:number)
     {
         this.id=id;

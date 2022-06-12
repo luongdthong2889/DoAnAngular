@@ -844,14 +844,15 @@ export class ProductService {
       description: newProduct.description,
       information: newProduct.information,
       cateid: newProduct.cateid,
+      
     });
-    // alert('Sửa thành công');
+    this.toastr.success('Đã sửa thông tin món','Thành Công');
   }
   addProduct(newProduct: Product) {
     let tmpID = false;
     this.products.forEach((i) => {
       if (i.id == newProduct.id) {
-        this.toastr.error('ID already exist', 'Failed');
+        this.toastr.error('ID đã tồn tại', 'Thất Bại');
         tmpID = true;
       }
     });
@@ -869,7 +870,7 @@ export class ProductService {
       information: newProduct.information,
       cateid: newProduct.cateid,
     });
-    // alert('Thêm thành công');
+    this.toastr.success('Đã thêm món','Thành Công');
   }
 
   deleteProduct(index: number) {
@@ -880,6 +881,6 @@ export class ProductService {
       }
     }
     remove(ref(this.database, 'products/' + index));
-    // alert('Xóa thành công');
+    this.toastr.success('Đã xoá món','Thành Công');
   }
 }

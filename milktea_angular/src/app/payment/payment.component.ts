@@ -4,6 +4,8 @@ import { Component, OnInit } from '@angular/core';
 import { Cart } from '../cart/cart.model';
 import { User } from '../cart/user.model';
 import { PaymentService } from './payment.service';
+import { ProductService } from '../product-list/product.service';
+import { Product } from '../product/product.model';
 
 @Component({
   selector: 'app-payment',
@@ -15,9 +17,11 @@ export class PaymentComponent implements OnInit {
   cart:Cart[];
   user:User;
   totalPrice:number;
-  constructor(private paymentService:PaymentService,private toastr:ToastrService,private cartService:CartService) { }
-
+  products!: Product[]
+  constructor(private productService:ProductService, private paymentService:PaymentService,private toastr:ToastrService,private cartService:CartService) { }
+  
   ngOnInit(): void {
+    this.products=this.productService.getProducts();
     this.user=this.paymentService.GetInfoUser();
     this.cart=this.cartService.getCart();
     this.totalPrice=0;

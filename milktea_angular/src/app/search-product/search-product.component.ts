@@ -18,6 +18,7 @@ export class SearchProductComponent implements OnInit {
   specialDeal!:Product[];
   cate!:Category[];
   cateid:any;
+  products!: Product[]
   constructor(private productService:ProductService,private activatedRoute:ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -25,6 +26,7 @@ export class SearchProductComponent implements OnInit {
       this.cateid = params.get('id');
       console.log(this.cateid);
     })
+    this.products=this.productService.getProducts();
     this.specialDeal=this.productService.getFeatureProducts();
     this.cate = this.productService.getCate();
   }

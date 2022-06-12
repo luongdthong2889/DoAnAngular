@@ -1,5 +1,7 @@
 import { ToastrService } from 'ngx-toastr';
 import { Component, OnInit } from '@angular/core';
+import { ProductService } from 'src/app/product-list/product.service';
+import { Product } from 'src/app/product/product.model';
 
 @Component({
   selector: 'app-newsletter',
@@ -8,9 +10,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NewsletterComponent implements OnInit {
   emailText:string;
-  constructor(private toastr:ToastrService) { }
-
+  products!: Product[]
+  constructor(private productService:ProductService, private toastr:ToastrService) { }
+  
   ngOnInit(): void {
+    this.products=this.productService.getProducts();
   }
   onEmailChange()
   {
@@ -30,12 +34,12 @@ export class NewsletterComponent implements OnInit {
     if(this.emailText!=null)
     {
       this.emailText='';
-      this.toastr.success('News Letter will send to you soon','Subscribe Success');
+      this.toastr.success('Thông tin sẽ sớm gửi đến bạn','Đăng Ký Thành Công');
     }
     else
     {
       
-      this.toastr.error('Enter your email','Subscribe Fail')
+      this.toastr.error('Nhập email của bạn','Đăng Ký Thất Bại')
     }
   }
 }

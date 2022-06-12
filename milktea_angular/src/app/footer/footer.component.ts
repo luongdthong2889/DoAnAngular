@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FacebookService, InitParams } from 'ngx-facebook';
+import { ProductService } from '../product-list/product.service';
+import { Product } from '../product/product.model';
+
 
 @Component({
   selector: 'app-footer',
@@ -8,13 +10,10 @@ import { FacebookService, InitParams } from 'ngx-facebook';
 })
 export class FooterComponent implements OnInit {
 
-  constructor(private facebookService: FacebookService) { }
-
+  constructor(private productService:ProductService) { }
+  products!: Product[]
   ngOnInit(): void {
-    this.initFacebookService();
+    this.products=this.productService.getProducts();
   }
-  private initFacebookService(): void {
-    const initParams: InitParams = { xfbml:true, version:'v3.2'};
-    this.facebookService.init(initParams);
-  }
+
 }

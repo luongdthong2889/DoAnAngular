@@ -12,10 +12,11 @@ export class ProductItemComponent implements OnInit {
 
   @Input() product:Product;
   @Input() index:number;
-  constructor(productService:ProductService,private cartService:CartService) { }
-
-  ngOnInit(): void {
+  products!: Product[]
+  constructor(private productService:ProductService,private cartService:CartService) { }
   
+  ngOnInit(): void {
+    this.products=this.productService.getProducts();
   }
   addToCartFromPI(){
     this.product.size='M';

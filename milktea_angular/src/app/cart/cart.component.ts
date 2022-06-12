@@ -7,6 +7,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { User } from './user.model';
 import { PaymentService } from '../payment/payment.service';
 import { Router } from '@angular/router';
+import { ProductService } from '../product-list/product.service';
 
 @Component({
   selector: 'app-cart',
@@ -18,9 +19,10 @@ export class CartComponent implements OnInit {
   totalPrice!:number;
   checkoutForm!:FormGroup;
   paymentForm!:FormGroup;
+  products!: Product[];
   
-  constructor(private cartService:CartService,private paymentService:PaymentService,private router:Router) { }
-
+  constructor(private productService:ProductService, private cartService:CartService,private paymentService:PaymentService,private router:Router) { }
+  
   ngOnInit(): void {
     this.cart = this.cartService.getCart();
     this.typeSelect='COD';
@@ -29,6 +31,7 @@ export class CartComponent implements OnInit {
     this.onUpdateTotal();
     this.initForm();
     this.initForm1();
+    this.products=this.productService.getProducts();
   }
   private initForm(){
     let Username='';

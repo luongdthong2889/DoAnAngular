@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ProductService } from '../product-list/product.service';
+import { Product } from '../product/product.model';
 
 @Component({
   selector: 'app-about',
@@ -7,7 +9,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AboutComponent implements OnInit {
 
-  constructor() { }
+  constructor(private productService:ProductService) { }
+  products!: Product[]
   tabOne:any;
   tabTwo:any;
   tabThree:any;
@@ -18,6 +21,7 @@ export class AboutComponent implements OnInit {
   tab2018:any;
   tab2019:any;
   ngOnInit(): void {
+    this.products=this.productService.getProducts();
     this.tabOne='block';
   }
   tab1(){

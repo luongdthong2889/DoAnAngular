@@ -1,4 +1,6 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { ProductService } from '../product-list/product.service';
+import { Product } from '../product/product.model';
 import { LoginService } from './admin-login.service';
 
 @Component({
@@ -10,10 +12,12 @@ export class AdminLoginComponent implements OnInit {
 
   @ViewChild('name') name:ElementRef;
   @ViewChild('password') password:ElementRef;
+  products!: Product[]
 
-  constructor(private loginService:LoginService) { }
-
+  constructor(private productService:ProductService, private loginService:LoginService) { }
+  
   ngOnInit():void{
+   this.products=this.productService.getProducts();
    this.loginService.CheckLogin();
   }
   LoginAdmin(){

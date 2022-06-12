@@ -12,10 +12,11 @@ export class AdminProductItemComponent implements OnInit {
 
   @Input() product!:Product;
   @Input() index!:number;
+  products!: Product[]
   constructor(private productService:ProductService,private router:Router) { }
-
-  ngOnInit(): void {
   
+  ngOnInit(): void {
+    this.products=this.productService.getProducts();  
   }
   deleteProduct(){
     this.productService.deleteProduct(this.product.id); 
