@@ -1,16 +1,37 @@
 <!-- /newsletter-->
 <div class="clearfix"></div>
-<div class="newsletter_w3layouts_agile">
-    <div class="col-sm-6 newsleft">
-        <h3>Đăng ký để nhận thông tin ưu đãi !</h3>
-    </div>
-    <div class="col-sm-6 newsright">
-        <form action="#" method="post">
-            <input type="email" placeholder="Nhập Email..." name="emailText" [(ngModel)]="emailText" (ngModelChange)="onEmailChange()">
-            <input type="submit"  value="Đăng ký" (click)="onSubscribe()">
-        </form>
-    </div>
 
-    <div class="clearfix"></div>
+<div class="newsletter_w3layouts_agile">
+    <div class="left-ads-display" style="display: flex;">
+        <div class="col-md-3 shop_left">
+            <img src="../../assets/images/287019583_523965449476445_62428295101029485_nlow.jpg" alt="">
+        </div>
+        <div class="col-md-3 shop_right">
+            <img src="../../assets/images/286638359_358173449744815_4993516698177896646_nlow.jpg" alt="">
+        </div> 
+        <div class="col-md-3 shop_left">
+            <img src="../../assets/images/286289675_105267485511894_5992788964144648452_nlow.jpg" alt="">
+        </div>
+        <div class="col-md-3 shop_right">
+            <img src="../../assets/images/285815465_164232479451124_118400978964821741_nlow.jpg" alt="">
+        </div> 
+    </div>
+  <div class="col-sm-6 newsleft">
+    <h3>Đăng ký để nhận thông tin ưu đãi !</h3>
+  </div>
+  <div class="col-sm-6 newsright">
+    <form action="#" method="post">
+      <input
+        type="email"
+        placeholder="Nhập Email..."
+        name="emailText"
+        [(ngModel)]="emailText"
+        (ngModelChange)="onEmailChange()"
+      />
+      <input type="submit" value="Đăng ký" (click)="onSubscribe()" />
+    </form>
+  </div>
+
+  <div class="clearfix"></div>
 </div>
 <!-- //newsletter-->
