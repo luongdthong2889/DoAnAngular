@@ -9,7 +9,7 @@ import { Product } from '../product/product.model';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
   providers: [
-    { provide: CarouselConfig, useValue: { interval: 3000, noPause: true, showIndicators: true } }
+    { provide: CarouselConfig, useValue: { interval: 5000, noPause: true, showIndicators: true } }
   ]
 })
 export class HomeComponent implements OnInit {

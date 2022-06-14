@@ -1,3 +1,19 @@
 .newsletter_w3layouts_agile {
     padding: 3em 5.5em;
 }
+.container-fluid {
+    position:relative;
+  }
+h3.head {
+    position:absolute;
+    text-align: center;
+    color: #111;
+    font-size: 3em;
+    letter-spacing: 2px;
+    font-weight: 700;
+    text-shadow: rgba(0, 0, 0, 0.13) 2px 2px 3px;
+    text-transform: uppercase;
+    left: 0; 
+    right: 0; 
+    margin: 0 auto;
+}

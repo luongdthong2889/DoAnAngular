@@ -2,7 +2,7 @@
 <div class="clearfix"></div>
 
 <div class="newsletter_w3layouts_agile">
-    <div class="left-ads-display" style="display: flex;">
+  <!-- <div class="left-ads-display" style="display: flex;">
         <div class="col-md-3 shop_left">
             <img src="../../assets/images/287019583_523965449476445_62428295101029485_nlow.jpg" alt="">
         </div>
@@ -15,23 +15,32 @@
         <div class="col-md-3 shop_right">
             <img src="../../assets/images/285815465_164232479451124_118400978964821741_nlow.jpg" alt="">
         </div> 
-    </div>
+    </div> -->
+  <div class="container-fluid">
+    <h3 class="head" style="padding-top: 100px">
+      Các chương trình ưu đãi khác
+    </h3>
+    <img class="img-responsive center-block" src="/../../assets/images/banner-tintuc-uudai.png" />
+  </div>
+
+  <carousel [itemsPerSlide]="itemsPerSlide" [singleSlideOffset]="singleSlideOffset" [interval]="3000" [noWrap]="noWrap">
+    <slide class="col-md-3" *ngFor="let slide of slides; let index = index" style="padding-top: 100px">
+      <img [src]="slide.image" alt="image slide" style="display: block; width: 100%" />
+    </slide>
+  </carousel>
+  <div class="clearfix"></div>
+</div>
+<div class="newsletter_w3layouts_agile">
   <div class="col-sm-6 newsleft">
     <h3>Đăng ký để nhận thông tin ưu đãi !</h3>
   </div>
   <div class="col-sm-6 newsright">
     <form action="#" method="post">
-      <input
-        type="email"
-        placeholder="Nhập Email..."
-        name="emailText"
-        [(ngModel)]="emailText"
-        (ngModelChange)="onEmailChange()"
-      />
+      <input type="email" placeholder="Nhập Email..." name="emailText" [(ngModel)]="emailText"
+        (ngModelChange)="onEmailChange()" />
       <input type="submit" value="Đăng ký" (click)="onSubscribe()" />
     </form>
   </div>
-
   <div class="clearfix"></div>
 </div>
 <!-- //newsletter-->
