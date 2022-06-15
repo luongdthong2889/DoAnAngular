@@ -84,7 +84,7 @@
                     </div>
                 </div>
                 <div class="col-md-8 address_form" [style.display]="payDetail">
-                    <h4>Địa chỉ giao hàng</h4>
+                    <h4>Vui lòng nhập đầy đủ thông tin</h4>
                     <form [formGroup]="checkoutForm" (ngSubmit)="CheckOut()" class="creditly-card-form agileinfo_form">
                         <section class="creditly-wrapper wrapper">
                             <div class="information-wrapper">
@@ -117,7 +117,7 @@
                                     </mat-radio-group>                                     
                                     
                                 </div>
-                                <button type ="submit" [disabled]="!checkoutForm.valid || !paymentForm.valid"  class="submit check_out" >Giao hàng đến địa chỉ này</button>
+                                <button type ="submit" [disabled]="!checkoutForm.valid || !paymentForm.valid"  class="submit check_out" >Tiến hành thanh toán</button>
                             </div>
                         </section>
                     </form>
