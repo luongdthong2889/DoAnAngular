@@ -1,0 +1,48 @@
+
+    <div class="col-sm-6" style="margin-top: 80px;">
+        <form [formGroup]="productForm" (ngSubmit)="onSubmitProduct()">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <label for="name">Tên Món</label>
+                        <input ngModel type="text" id="name" formControlName="name" class="form-control">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <label for="id">Số Lượng</label>
+                        <input ngModel type="number" cateid="cateid" formControlName="cateid" class="form-control">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <label for="price">Giá</label>
+                        <input ngModel type="number" id="price" formControlName="price" class="form-control">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <label for="price">Tổng Tiền</label>
+                        <input ngModel type="number" id="price" formControlName="price" class="form-control">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12" style="text-align: right;">
+                    <button type="submit" 
+                    class="btn btn-success mr-1"
+                    [disabled]="!productForm.valid"
+                    style="border-radius: 0;"
+                    >Lưu</button>
+                    <button type="button" class="btn btn-danger" (click)="onCancel()" style="border-radius: 0;">Huỷ</button>
+                </div>
+            </div>
+        </form>
+    </div>
+

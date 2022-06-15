@@ -12,6 +12,8 @@ import { HomeComponent } from "./home/home.component";
 import { ProductDetailComponent } from "./product-detail/product-detail.component";
 import { ProductComponent } from "./product/product.component";
 import { PaymentComponent } from './payment/payment.component';
+import { AdminOrderComponent } from './admin-order/admin-order.component';
+import { OrderEditComponent } from './order-edit/order-edit.component';
 
 const appRoutes:Routes=[
     {path:'',component:HomeComponent},
@@ -27,7 +29,10 @@ const appRoutes:Routes=[
         {path:'product',component:AdminProductComponent,children:[
             {path:'new',component:ProductEditComponent},
             {path:':id',component:ProductEditComponent}
-        ]},    
+        ]},
+        {path:'order',component:AdminOrderComponent,children:[
+            {path:':id',component:OrderEditComponent}
+        ]}   
     ]}
 ];
 @NgModule({

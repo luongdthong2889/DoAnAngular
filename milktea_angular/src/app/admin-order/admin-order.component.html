@@ -1,0 +1,48 @@
+<div class="col-sm-6">
+    <div class="search-hotel" style="text-align: center;">
+        <form action="#" method="post" style="display: flex; align-items: center; justify-content: center;">
+            <input 
+            type="search" 
+            placeholder="Tên món..." 
+                name="search" 
+                [(ngModel)]="searchText" 
+             style="background:#dddbdb;color:black;"
+             >
+            <input type="submit" value=" " style="background-color:#e74a3b;">
+        </form>
+    </div>
+    <div class="left-ads-display">
+            <div class="clearfix"></div>
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>STT</th>
+                            <th>Họ và tên</th>
+                            <th>Số điện thoại</th>
+                            <th>Địa chỉ</th>
+                            <th>Thành phố</th>
+                            <th>Tổng tiền</th>
+                            <th>Thanh toán bằng</th>
+                            <th>Chức năng</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let cartitem of cart;let i=index">
+                            <th>{{ i+1 }}</th>
+                            <th>{{ user.name }}</th>
+                            <th>{{ user.phone }}</th>
+                            <th>{{ user.address }}</th>
+                            <th>{{ user.city }}</th>
+                            <th>{{ cartitem.price|currency: "VND"}}</th>
+                            <th>{{ user.payment }}</th>
+                            <button class="btn btn-danger" style="float: left;margin:18px 0px; border-radius: 0;" [routerLink]="[index]"
+    routerLinkActive="active">Xem Chi Tiết</button>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+    </div>
+</div>
+
+<router-outlet></router-outlet>

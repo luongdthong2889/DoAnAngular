@@ -38,6 +38,8 @@ import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideDatabase,getDatabase } from '@angular/fire/database';
 import { FacebookModule } from 'ngx-facebook';
+import { AdminOrderComponent } from './admin-order/admin-order.component';
+import { OrderEditComponent } from './order-edit/order-edit.component';
 
 
 
@@ -62,6 +64,8 @@ import { FacebookModule } from 'ngx-facebook';
     AdminProductComponent,
     AdminProductItemComponent,
     ProductEditComponent,
+    AdminOrderComponent,
+    OrderEditComponent,
   ],
   imports: [
     BrowserModule,
