@@ -2,12 +2,16 @@ import { SubDetail } from './../product-detail/product-detail.component';
 import { CartService } from './cart.service';
 import { Cart } from './cart.model';
 import { Product } from './../product/product.model';
-import { Component, OnInit, Input, Output } from '@angular/core';
+import { Component, OnInit, Input, Output, ViewChild, ElementRef } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { User } from './user.model';
 import { PaymentService } from '../payment/payment.service';
 import { Router } from '@angular/router';
 import { ProductService } from '../product-list/product.service';
+import { render } from 'creditcardpayments/creditCardPayments';
+import { HttpInterceptor, HttpClient, HttpErrorResponse } from '@angular/common/http';
+
+declare var paypal: any;
 
 @Component({
   selector: 'app-cart',
@@ -20,18 +24,69 @@ export class CartComponent implements OnInit {
   checkoutForm!:FormGroup;
   paymentForm!:FormGroup;
   products!: Product[];
+  product!: Product;
+  @ViewChild('PayPal', {static: true}) paypalElement: ElementRef;
+  paidFor = false;
   
   constructor(private productService:ProductService, private cartService:CartService,private paymentService:PaymentService,private router:Router) { }
   
   ngOnInit(): void {
     this.cart = this.cartService.getCart();
+    this.typeSelect='PayPal';
     this.typeSelect='COD';
     this.payDisable='none';
+    this.payDisable2='none';
     this.onCheckCartLenght();
     this.onUpdateTotal();
     this.initForm();
     this.initForm1();
     this.products=this.productService.getProducts();
+    paypal.Buttons({
+      createOrder: (data, actions) => {
+        return actions.order.create({
+          purchase_units: [
+            {
+              description: "Text",
+              amount: {
+                currency_code: 'USD',
+                value: "100.00"
+              } 
+            }
+          ]
+        })
+        },
+        onApprove: (data, actions) => {
+            return actions.order.capture().then((details,err) => {
+                // Show a success message to the buyer
+                console.log('Capture result', details, JSON.stringify(details, null, 2));
+                    var transaction = details.purchase_units[0].payments.captures[0];
+                    this.router.navigate(['../product'])
+              setTimeout(() => {
+                window.alert('Tình trạng giao dịch: ' + transaction.status +
+                '\n\nMã giao dịch: ' + transaction.id  + 
+                '\n\nCảm ơn ' + details.payer.name.given_name + ' đã mua hàng!');;
+                },500);
+            });
+        },
+        onError: (err: any) => {
+          console.log(err);
+        },
+        onShippingChange: (data,actions) => {
+          //if not needed do nothing..
+          return actions.resolve();
+        }
+    }).render(this.paypalElement.nativeElement);
+    // render(
+    //   {
+    //     id: "#myPaypalButtons",
+    //     currency: "USD",
+    //     value: "100.00",
+    //     onApprove: (details) => {
+    //       alert("Thanh toán thành công");
+    //     }
+    //   }
+    // )
+
   }
   private initForm(){
     let Username='';
@@ -60,18 +115,28 @@ export class CartComponent implements OnInit {
     })
   }
   typesPay:SubDetail[]=[
-    new SubDetail('COD'),new SubDetail('Thẻ tín dụng/Thẻ ghi nợ')
+    new SubDetail('COD'),new SubDetail('Thẻ tín dụng/Thẻ ghi nợ'), new SubDetail('PayPal')
   ]
   typeSelect!:string;
   payDisable:any;
+  payDisable2: any;
   payDetail:any;
   showChange(){
     if(this.typeSelect=='COD')
     {
       this.payDisable='none';
+      this.payDisable2='none';
+      this.initForm1();
+    }
+    else if(this.typeSelect=='PayPal')
+    {
+      this.payDisable='none';
+      this.payDisable2='block';
+      this.payDetail='none';
       this.initForm1();
     }
     else{
+      this.payDisable2='none';
       this.payDisable='block';
       let cardName='';
       let cardNumber='';

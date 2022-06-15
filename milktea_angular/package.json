@@ -27,6 +27,7 @@
     "@schematics/angular": "^14.0.0",
     "autoprefixer": "10.4.5",
     "bootstrap": "^4.6.1",
+    "creditcardpayments": "^1.0.3",
     "firebase-tools": "^10.1.1",
     "font-awesome": "^4.7.0",
     "ng-sidebar": "^9.4.3",

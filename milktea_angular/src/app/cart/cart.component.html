@@ -78,9 +78,19 @@
                                             <input class="expiration-month-and-year form-control" type="text" formControlName="expirationDate" placeholder="MM / YY" required="">
                                         </div>
                                     </div>
+                                    
                                 </div>
                             </section>
                         </form>
+                    </div>
+                    <div class="pay_info" [style.display]="payDisable2">
+                            <div class="tab-grid">
+                                <img class="pp-img" src="../../assets/images/paypal.png" alt="Image Alternative text" title="Image Title">
+                                <p>Chú ý: Bạn sẽ đến trang web của PayPal để hoàn tất thanh toán một cách an toàn.</p>
+                                <div #PayPal></div>
+                                <!-- <div id="myPaypalButtons"></div> -->
+                            </div>
+                            <div class="clearfix"></div>
                     </div>
                 </div>
                 <div class="col-md-8 address_form" [style.display]="payDetail">
