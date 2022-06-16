@@ -2,6 +2,8 @@ import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../product-list/product.service';
 import { Product } from '../product/product.model';
+import { Order } from '../admin-order/order.model';
+import { OrderService } from '../admin-order/order.service';
 
 
 @Component({
@@ -13,13 +15,15 @@ export class HeaderComponent implements OnInit {
 
   _opened: boolean = false;
   products!: Product[]
+  orders!:Order[];
   _toggleSidebar() {
     this._opened = !this._opened;
   }
-  constructor(private productService:ProductService, public router:Router) { }
+  constructor(private productService:ProductService, private orderService:OrderService, public router:Router) { }
   
   ngOnInit(): void {
     this.products=this.productService.getProducts();
+    this.orders = this.orderService.getOrders();  
   }
   
 }

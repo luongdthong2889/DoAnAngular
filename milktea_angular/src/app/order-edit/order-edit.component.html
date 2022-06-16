@@ -1,6 +1,6 @@
 
     <div class="col-sm-6" style="margin-top: 80px;">
-        <form [formGroup]="productForm" (ngSubmit)="onSubmitProduct()">
+        <form [formGroup]="orderForm" (ngSubmit)="onSubmitOrder()">
             <div class="row">
                 <div class="col-sm-12">
                     <div class="form-group">
@@ -12,32 +12,32 @@
             <div class="row">
                 <div class="col-sm-12">
                     <div class="form-group">
-                        <label for="id">Số Điện Thoại</label>
-                        <input ngModel type="number" cateid="cateid" formControlName="cateid" class="form-control">
+                        <label for="phone">Số Điện Thoại</label>
+                        <input ngModel type="number" id="phone" formControlName="phone" class="form-control">
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-sm-12">
                     <div class="form-group">
-                        <label for="price">Địa Chỉ</label>
-                        <input ngModel type="number" id="price" formControlName="price" class="form-control">
+                        <label for="address">Địa Chỉ</label>
+                        <input ngModel type="text" id="address" formControlName="address" class="form-control">
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-sm-12">
                     <div class="form-group">
-                        <label for="price">Thành Phố</label>
-                        <input ngModel type="number" id="price" formControlName="price" class="form-control">
+                        <label for="city">Thành Phố</label>
+                        <input ngModel type="text" id="city" formControlName="city" class="form-control">
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-sm-12">
                     <div class="form-group">
-                        <label for="price">Thanh Toán Bằng</label>
-                        <input ngModel type="number" id="price" formControlName="price" class="form-control">
+                        <label for="payment">Thanh Toán Bằng</label>
+                        <input ngModel type="text" id="payment" formControlName="payment" class="form-control">
                     </div>
                 </div>
             </div>
@@ -54,16 +54,15 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <!-- <tr *ngFor="let order of order;let i=index">
-                                <td>{{ i+1 }}</td>
-                                <td>{{ order.user.name }}</td>
-                                <td>{{ order.user.phone }}</td>
-                                <td>{{ order.user.address }}</td>
-                                <td>{{ order.user.city }}</td>
-                                <td>{{ order.totalPrice|currency: "VND"}}</td>
+                            <tr *ngFor="let order of orders;let index=index">
+                                <!-- <td>{{ order.id }}</td>
+                                <td>{{ order.cart.product.name }}</td>
+                                <td>{{ order.cart.quantity }}</td>
+                                <td>{{ order.cart.price }}</td>
+                                <td>{{ order.totalPrice|currency: "VND"}}</td> -->
                                 <button class="btn btn-danger" style="float: left;margin:18px 0px; border-radius: 0;" [routerLink]="[index]"
         routerLinkActive="active">Xem Chi Tiết</button>
-                            </tr> -->
+                            </tr>
                         </tbody>
                     </table>
                 </div>
@@ -73,7 +72,7 @@
                 <div class="col-sm-12" style="text-align: right;">
                     <button type="submit" 
                     class="btn btn-success mr-1"
-                    [disabled]="!productForm.valid"
+                    [disabled]="!orderForm.valid"
                     style="border-radius: 0;"
                     >Lưu</button>
                     <button type="button" class="btn btn-danger" (click)="onCancel()" style="border-radius: 0;">Huỷ</button>

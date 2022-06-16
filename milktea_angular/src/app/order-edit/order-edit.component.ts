@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Database } from '@angular/fire/database';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Params, Router } from '@angular/router';
-import { ProductService } from '../product-list/product.service';
+import { Order } from '../admin-order/order.model';
+import { OrderService } from '../admin-order/order.service';
+import { Cart } from '../cart/cart.model';
 
 @Component({
   selector: 'app-order-edit',
@@ -12,9 +14,12 @@ import { ProductService } from '../product-list/product.service';
 export class OrderEditComponent implements OnInit {
 
   id!: number;
-  productForm!: FormGroup;
+  index!: number;
+  cart:Cart[];
+  orders: Order[]
+  orderForm!: FormGroup;
   editMode=false;
-  constructor(public database:Database,private route:ActivatedRoute,private router:Router,private productService:ProductService) { }
+  constructor(public database:Database,private route:ActivatedRoute,private router:Router,private orderService:OrderService) { }
 
   ngOnInit(): void {
     this.route.params.subscribe(
@@ -26,41 +31,43 @@ export class OrderEditComponent implements OnInit {
     )
   }
   initForm(){
-    let productID;
-    let productName='';
-    let productPrice;
-    let productImagePath='';
-    let productDescription='';
-    let productInformation='';
-    let productCateID;
+    let orderID;
+    let userName='';
+    let userPhone;
+    let userAddress='';
+    let userCity='';
+    let userPayment='';
+    // let productName='';
+    // let productQuantity;
+    // let productPrice;
+    // let productTotalPrice;
     if(this.editMode){
-      const product=this.productService.getProduct(this.id);
+      const order=this.orderService.getOrder(this.id);
       console.log(this.id);
-      console.log(product);
-      productID=product.id;
-      productName=product.name;
-      productPrice=product.price;
-      productImagePath=product.imagePath;
-      productDescription=product.description;
-      productInformation=product.information;
-      productCateID = product.cateid;
+      console.log(order);
+      orderID=order.id;
+      userName=order.user.name;
+      userPhone=order.user.phone;
+      userAddress=order.user.address;
+      userCity=order.user.city;
+      userPayment=order.user.payment;
+      // productName=order.cart.product.name;
+      // productQuantity = order.cart.quantity;
+      // productPrice = order.cart.price;
+      // productTotalPrice = order.totalPrice;
     }
-    this.productForm= new FormGroup({
-      'id':new FormControl(productID,[Validators.required,Validators.pattern(/^[0-9]+[0-9]*$/)]),
-      'name':new FormControl(productName,Validators.required),
-      'price':new FormControl(productPrice,Validators.required),
-      'imagePath':new FormControl(productImagePath,Validators.required),
-      'description':new FormControl(productDescription,Validators.required),
-      'information':new FormControl(productInformation,Validators.required),
-      'cateid':new FormControl(productCateID,Validators.required),
+    this.orderForm= new FormGroup({
+      'id':new FormControl(orderID,[Validators.required,Validators.pattern(/^[0-9]+[0-9]*$/)]),
+      'name': new FormControl(userName,Validators.required),
+      'phone': new FormControl(userPhone,[Validators.required,Validators.pattern(/^((\\+91-?)|0)?[0-9]{10}$/)]),
+      'address': new FormControl(userAddress,Validators.required),
+      'city': new FormControl(userCity,Validators.required),
+      'payment':new FormControl(userPayment,Validators.required)
     });
   }
-  onSubmitProduct(){
+  onSubmitOrder(){
     if(this.editMode){
-      this.productService.updateProduct(this.id,this.productForm.value);
-    }
-    else{
-      this.productService.addProduct(this.productForm.value);
+      this.orderService.updateOrder(this.id,this.orderForm.value);
     }
   }
   onCancel(){

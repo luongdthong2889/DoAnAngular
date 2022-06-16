@@ -20,8 +20,8 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr *ngFor="let order of orders; let i = index">
-                                <td>{{ i+1 }}</td>
+                            <tr *ngFor="let order of orders; let index = index">
+                                <td>{{ index + 1 }}</td>
                                 <td>{{ order.user.name }}</td>
                                 <td>{{ order.user.phone }}</td>
                                 <!-- <td>{{ order.user.address }}</td>
@@ -32,7 +32,7 @@
                                     <button class="btn btn-info" [routerLink]="[index]" routerLinkActive="active">
                                         Xem Chi Tiết
                                     </button>
-                                    <button class="btn-delele btn btn-danger" style="margin-left: 18px">
+                                    <button class="btn-delele btn btn-danger" style="margin-left: 18px" (click)="deleteOrder()">
                                         Xoá
                                     </button>
                                 </td>

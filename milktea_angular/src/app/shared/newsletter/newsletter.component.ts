@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { ProductService } from 'src/app/product-list/product.service';
 import { Product } from 'src/app/product/product.model';
 import { CarouselConfig } from 'ngx-bootstrap/carousel';
+import { Order } from 'src/app/admin-order/order.model';
+import { OrderService } from 'src/app/admin-order/order.service';
 
 @Component({
   selector: 'app-newsletter',
@@ -14,11 +16,13 @@ import { CarouselConfig } from 'ngx-bootstrap/carousel';
 })
 export class NewsletterComponent implements OnInit {
   emailText:string;
-  products!: Product[]
-  constructor(private productService:ProductService, private toastr:ToastrService) { }
+  products!: Product[];
+  orders!:Order[];
+  constructor(private productService:ProductService, private orderService:OrderService, private toastr:ToastrService) { }
   
   ngOnInit(): void {
     this.products=this.productService.getProducts();
+    this.orders = this.orderService.getOrders(); 
   }
   onEmailChange()
   {

@@ -22,6 +22,7 @@ import {
   remove,
 } from '@angular/fire/database';
 import { Order } from '../admin-order/order.model';
+import { OrderService } from '../admin-order/order.service';
 
 declare var paypal: any;
 
@@ -37,11 +38,12 @@ export class CartComponent implements OnInit {
   paymentForm!:FormGroup;
   products!: Product[];
   product!: Product;
+  orders:Order[];
   order: Order;
   @ViewChild('PayPal', {static: true}) paypalElement: ElementRef;
   paidFor = false;
   
-  constructor(public database: Database,private productService:ProductService, private cartService:CartService,private paymentService:PaymentService,private router:Router) { }
+  constructor(public database: Database,private productService:ProductService, private orderService:OrderService, private cartService:CartService,private paymentService:PaymentService,private router:Router) { }
   
   ngOnInit(): void {
     this.cart = this.cartService.getCart();
@@ -54,12 +56,12 @@ export class CartComponent implements OnInit {
     this.initForm();
     this.initForm1();
     this.products=this.productService.getProducts();
+    this.orders = this.orderService.getOrders();  
     paypal.Buttons({
       createOrder: (data, actions) => {
         return actions.order.create({
           purchase_units: [
             {
-              description: "Text",
               amount: {
                 currency_code: 'USD',
                 value: this.totalPrice
@@ -167,7 +169,8 @@ export class CartComponent implements OnInit {
     const cart=this.cart;
     const user=this.checkoutForm.value;
     this.paymentService.AddBill(user);
-    const id = Math.floor((Math.random()*99999)+1);
+    var id = 0;
+    id =+ 1;
     set(ref(this.database, 'orders/' + id), {
       id: id,
       cart: cart,

@@ -20,16 +20,21 @@ export class AdminOrderComponent implements OnInit {
   products!: Product[];
   cart:Cart[];
   user:User;
+  @Input() order!:Order;
   searchText: any;
-
   orders:Order[];
-  constructor( private orderService:OrderService,private productService:ProductService, private paymentService:PaymentService,private toastr:ToastrService,private cartService:CartService,private router:Router,private route:ActivatedRoute) {
+  
+  constructor(private productService:ProductService, private orderService:OrderService, private paymentService:PaymentService,private toastr:ToastrService,private cartService:CartService,private router:Router,private route:ActivatedRoute) {
   }
 
   ngOnInit(): void {
     this.products=this.productService.getProducts();
     this.user=this.paymentService.GetInfoUser();
     this.cart=this.cartService.getCart();
-    this.orders = this.orderService.getOrder();
+    this.orders = this.orderService.getOrders();
+  }
+  deleteOrder(){
+    this.orderService.deleteOrder(this.order.id); 
+    this.router.navigate(['../admin/order'])
   }
 }
