@@ -49,7 +49,7 @@ export class CartComponent implements OnInit {
               description: "Text",
               amount: {
                 currency_code: 'USD',
-                value: "100.00"
+                value: this.totalPrice
               } 
             }
           ]
