@@ -40,6 +40,7 @@ import { provideDatabase,getDatabase } from '@angular/fire/database';
 import { FacebookModule } from 'ngx-facebook';
 import { AdminOrderComponent } from './admin-order/admin-order.component';
 import { OrderEditComponent } from './order-edit/order-edit.component';
+import { SearchOrderComponent } from './search-order/search-order.component';
 
 
 
@@ -66,6 +67,7 @@ import { OrderEditComponent } from './order-edit/order-edit.component';
     ProductEditComponent,
     AdminOrderComponent,
     OrderEditComponent,
+    SearchOrderComponent,
   ],
   imports: [
     BrowserModule,

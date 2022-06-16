@@ -21,6 +21,7 @@ import {
   list,
   remove,
 } from '@angular/fire/database';
+import { Order } from '../admin-order/order.model';
 
 declare var paypal: any;
 
@@ -36,6 +37,7 @@ export class CartComponent implements OnInit {
   paymentForm!:FormGroup;
   products!: Product[];
   product!: Product;
+  order: Order;
   @ViewChild('PayPal', {static: true}) paypalElement: ElementRef;
   paidFor = false;
   
@@ -165,8 +167,9 @@ export class CartComponent implements OnInit {
     const cart=this.cart;
     const user=this.checkoutForm.value;
     this.paymentService.AddBill(user);
-    var num = Math.floor((Math.random()*99999)+1);
-    set(ref(this.database, 'orders/' + num), {
+    const id = Math.floor((Math.random()*99999)+1);
+    set(ref(this.database, 'orders/' + id), {
+      id: id,
       cart: cart,
       user: user,
       totalPrice: this.totalPrice,

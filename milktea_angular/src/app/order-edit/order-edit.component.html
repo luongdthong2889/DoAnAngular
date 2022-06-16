@@ -4,7 +4,7 @@
             <div class="row">
                 <div class="col-sm-12">
                     <div class="form-group">
-                        <label for="name">Tên Món</label>
+                        <label for="name">Họ Và Tên</label>
                         <input ngModel type="text" id="name" formControlName="name" class="form-control">
                     </div>
                 </div>
@@ -12,7 +12,7 @@
             <div class="row">
                 <div class="col-sm-12">
                     <div class="form-group">
-                        <label for="id">Số Lượng</label>
+                        <label for="id">Số Điện Thoại</label>
                         <input ngModel type="number" cateid="cateid" formControlName="cateid" class="form-control">
                     </div>
                 </div>
@@ -20,7 +20,7 @@
             <div class="row">
                 <div class="col-sm-12">
                     <div class="form-group">
-                        <label for="price">Giá</label>
+                        <label for="price">Địa Chỉ</label>
                         <input ngModel type="number" id="price" formControlName="price" class="form-control">
                     </div>
                 </div>
@@ -28,11 +28,47 @@
             <div class="row">
                 <div class="col-sm-12">
                     <div class="form-group">
-                        <label for="price">Tổng Tiền</label>
+                        <label for="price">Thành Phố</label>
                         <input ngModel type="number" id="price" formControlName="price" class="form-control">
                     </div>
                 </div>
             </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <label for="price">Thanh Toán Bằng</label>
+                        <input ngModel type="number" id="price" formControlName="price" class="form-control">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12 table-responsive">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>Mã Đơn Hàng</th>
+                                <th>Tên Món</th>
+                                <th>Số Lượng</th>
+                                <th>Đơn Giá</th>
+                                <th>Tổng Tiền</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- <tr *ngFor="let order of order;let i=index">
+                                <td>{{ i+1 }}</td>
+                                <td>{{ order.user.name }}</td>
+                                <td>{{ order.user.phone }}</td>
+                                <td>{{ order.user.address }}</td>
+                                <td>{{ order.user.city }}</td>
+                                <td>{{ order.totalPrice|currency: "VND"}}</td>
+                                <button class="btn btn-danger" style="float: left;margin:18px 0px; border-radius: 0;" [routerLink]="[index]"
+        routerLinkActive="active">Xem Chi Tiết</button>
+                            </tr> -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
             <div class="row">
                 <div class="col-sm-12" style="text-align: right;">
                     <button type="submit" 

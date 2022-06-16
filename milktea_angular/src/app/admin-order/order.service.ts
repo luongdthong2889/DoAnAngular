@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
 import { child, Database, get, ref } from '@angular/fire/database';
-import { OrderFB } from './orderfb.model';
+import { Order } from './order.model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class OrderService {
-  orderfb: OrderFB[] = new Array();
+  order: Order[] = new Array();
 
   constructor(public database: Database) {
     this.getOderData();
@@ -18,8 +18,9 @@ export class OrderService {
       .then((snapshot) => {
         if (snapshot.exists()) {
           snapshot.forEach((element) => {
-            this.orderfb.push(
-              new OrderFB(
+            this.order.push(
+              new Order(
+                element.val().id,
                 element.val().cart,
                 element.val().user,
                 element.val().totalPrice,
@@ -35,7 +36,7 @@ export class OrderService {
       });
   }
 
-  getOrderFB(){
-    return this.orderfb;
+  getOrder(){
+    return this.order;
   }
 }

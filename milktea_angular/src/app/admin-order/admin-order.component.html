@@ -1,48 +1,47 @@
 <div class="col-sm-6">
-    <div class="search-hotel" style="text-align: center;">
-        <form action="#" method="post" style="display: flex; align-items: center; justify-content: center;">
-            <input 
-            type="search" 
-            placeholder="Tên món..." 
-                name="search" 
-                [(ngModel)]="searchText" 
-             style="background:#dddbdb;color:black;"
-             >
-            <input type="submit" value=" " style="background-color:#e74a3b;">
-        </form>
-    </div>
-    <div class="left-ads-display">
+    <app-search-order>
+    </app-search-order>
+    <div class="col-sm-12">
+        <div class="left-ads-display">
             <div class="clearfix"></div>
-            <div class="table-responsive">
-                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                    <thead>
-                        <tr>
-                            <th>STT</th>
-                            <th>Họ và tên</th>
-                            <th>Số điện thoại</th>
-                            <th>Địa chỉ</th>
-                            <th>Thành phố</th>
-                            <th>Tổng tiền</th>
-                            <th>Thanh toán bằng</th>
-                            <th>Chức năng</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr *ngFor="let useritem of orderfb;let i=index">
-                            <th>{{ i+1 }}</th>
-                            <th>{{ useritem.user.name }}</th>
-                            <th>{{ useritem.user.phone }}</th>
-                            <th>{{ useritem.user.address }}</th>
-                            <th>{{ useritem.user.city }}</th>
-                            <th>{{ useritem.totalPrice|currency: "VND"}}</th>
-                            <th>{{ useritem.user.payment }}</th>
-                            <button class="btn btn-danger" style="float: left;margin:18px 0px; border-radius: 0;" [routerLink]="[index]"
-    routerLinkActive="active">Xem Chi Tiết</button>
-                        </tr>
-                    </tbody>
-                </table>
+            <div class="row">
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>STT</th>
+                                <th>Họ Và Tên</th>
+                                <th>Số Điện Thoại</th>
+                                <!-- <th>Địa Chỉ</th>
+                                <th>Thành Phố</th> -->
+                                <th>Tổng Tiền</th>
+                                <th>Thanh Toán Bằng</th>
+                                <th>Chức Năng</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let order of orders; let i = index">
+                                <td>{{ i+1 }}</td>
+                                <td>{{ order.user.name }}</td>
+                                <td>{{ order.user.phone }}</td>
+                                <!-- <td>{{ order.user.address }}</td>
+                                <td>{{ order.user.city }}</td> -->
+                                <td>{{ order.totalPrice | currency: "VND" }}</td>
+                                <td>{{ order.user.payment }}</td>
+                                <td style="white-space: nowrap; margin: 18px 0px">
+                                    <button class="btn btn-info" [routerLink]="[index]" routerLinkActive="active">
+                                        Xem Chi Tiết
+                                    </button>
+                                    <button class="btn-delele btn btn-danger" style="margin-left: 18px">
+                                        Xoá
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
+        </div>
     </div>
 </div>
-
 <router-outlet></router-outlet>
