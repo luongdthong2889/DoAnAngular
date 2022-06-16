@@ -15,6 +15,7 @@ export class ProductListComponent implements OnInit {
   p: number = 1;
   count: number = 6;
   cateid:any;
+  showLoader: boolean = false;
   constructor(private productService:ProductService,private activatedRoute:ActivatedRoute) { 
   }
 

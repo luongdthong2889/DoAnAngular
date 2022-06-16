@@ -10,6 +10,17 @@ import { Router } from '@angular/router';
 import { ProductService } from '../product-list/product.service';
 import { render } from 'creditcardpayments/creditCardPayments';
 import { HttpInterceptor, HttpClient, HttpErrorResponse } from '@angular/common/http';
+import {
+  Database,
+  set,
+  ref,
+  update,
+  onValue,
+  get,
+  child,
+  list,
+  remove,
+} from '@angular/fire/database';
 
 declare var paypal: any;
 
@@ -28,7 +39,7 @@ export class CartComponent implements OnInit {
   @ViewChild('PayPal', {static: true}) paypalElement: ElementRef;
   paidFor = false;
   
-  constructor(private productService:ProductService, private cartService:CartService,private paymentService:PaymentService,private router:Router) { }
+  constructor(public database: Database,private productService:ProductService, private cartService:CartService,private paymentService:PaymentService,private router:Router) { }
   
   ngOnInit(): void {
     this.cart = this.cartService.getCart();
@@ -154,6 +165,12 @@ export class CartComponent implements OnInit {
     const cart=this.cart;
     const user=this.checkoutForm.value;
     this.paymentService.AddBill(user);
+    var num = Math.floor((Math.random()*99999)+1);
+    set(ref(this.database, 'orders/' + num), {
+      cart: cart,
+      user: user,
+      totalPrice: this.totalPrice,
+    });
     this.router.navigate(['../payment'])
   }
   onIncreaseQuantity(index:number){

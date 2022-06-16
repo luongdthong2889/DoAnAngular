@@ -2,13 +2,24 @@ import { Product } from './../product/product.model';
 import { Cart } from './cart.model';
 import { Injectable } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
+import {
+    Database,
+    set,
+    ref,
+    update,
+    onValue,
+    get,
+    child,
+    list,
+    remove,
+  } from '@angular/fire/database';
 @Injectable({
     providedIn:'root',
 })
 export class CartService{
     cart:Cart[]=[];
     product:Product;
-    constructor(private toastr:ToastrService){
+    constructor(public database: Database,private toastr:ToastrService){
 
     }
     addToCart(product:Product,quantity:number){

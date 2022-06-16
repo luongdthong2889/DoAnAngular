@@ -7,6 +7,8 @@ import { User } from '../cart/user.model';
 import { PaymentService } from '../payment/payment.service';
 import { ProductService } from '../product-list/product.service';
 import { Product } from '../product/product.model';
+import { OrderFB } from './orderfb.model';
+import { OrderService } from './orderservice';
 
 @Component({
   selector: 'app-admin-order',
@@ -19,12 +21,15 @@ export class AdminOrderComponent implements OnInit {
   cart:Cart[];
   user:User;
   searchText: any;
-  constructor(private productService:ProductService, private paymentService:PaymentService,private toastr:ToastrService,private cartService:CartService,private router:Router,private route:ActivatedRoute) {
+
+  orderfb:OrderFB[];
+  constructor( private orderservice:OrderService,private productService:ProductService, private paymentService:PaymentService,private toastr:ToastrService,private cartService:CartService,private router:Router,private route:ActivatedRoute) {
   }
 
   ngOnInit(): void {
     this.products=this.productService.getProducts();
     this.user=this.paymentService.GetInfoUser();
-    this.cart=this.cartService.getCart();  
+    this.cart=this.cartService.getCart();
+    this.orderfb = this.orderservice.getOrderFB();
   }
 }

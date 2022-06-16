@@ -22,5 +22,4 @@ export class AdminProductItemComponent implements OnInit {
     this.productService.deleteProduct(this.product.id); 
     this.router.navigate(['../admin/product'])
   }
-
 }

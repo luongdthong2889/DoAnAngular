@@ -28,14 +28,14 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr *ngFor="let cartitem of cart;let i=index">
+                        <tr *ngFor="let useritem of orderfb;let i=index">
                             <th>{{ i+1 }}</th>
-                            <th>{{ user.name }}</th>
-                            <th>{{ user.phone }}</th>
-                            <th>{{ user.address }}</th>
-                            <th>{{ user.city }}</th>
-                            <th>{{ cartitem.price|currency: "VND"}}</th>
-                            <th>{{ user.payment }}</th>
+                            <th>{{ useritem.user.name }}</th>
+                            <th>{{ useritem.user.phone }}</th>
+                            <th>{{ useritem.user.address }}</th>
+                            <th>{{ useritem.user.city }}</th>
+                            <th>{{ useritem.totalPrice|currency: "VND"}}</th>
+                            <th>{{ useritem.user.payment }}</th>
                             <button class="btn btn-danger" style="float: left;margin:18px 0px; border-radius: 0;" [routerLink]="[index]"
     routerLinkActive="active">Xem Chi Tiết</button>
                         </tr>
