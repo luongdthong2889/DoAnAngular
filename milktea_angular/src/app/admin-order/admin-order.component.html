@@ -1,6 +1,8 @@
-<div class="col-sm-12">
+<div class="col-sm-6">
     <app-search-order>
     </app-search-order>
+</div>
+<div class="col-sm-12">
     <div class="col-sm-12">
         <div class="left-ads-display">
             <div class="clearfix"></div>
@@ -12,13 +14,16 @@
                                 <th>STT</th>
                                 <th>Họ Và Tên</th>
                                 <th>Số Điện Thoại</th>
-                                <!-- <th>Địa Chỉ</th>
-                                <th>Thành Phố</th> -->
-                                <th>Tổng Tiền</th>
+                                <th>Địa Chỉ</th>
+                                <th>Thành Phố</th>
+                                <th>Hình Thức Thanh Toán</th>
+                                <th>Mã Đơn Hàng</th>
+                                <th>Tên Món</th>
+                                <th>Hình Ảnh</th>
+                                <th>Số Lượng</th>
+                                <th>Giá</th>
                                 <th>Ngày Đặt</th>
-                                <th>Tên nước</th>
-                                <th>Hình ảnh</th>
-                                <th>Hình thức</th>
+                                <th>Tổng Tiền</th>
                                 <th></th>
                             </tr>
                         </thead>
@@ -27,13 +32,17 @@
                                 <td>{{ index + 1 }}</td>
                                 <td>{{ order.user.name }}</td>
                                 <td>{{ order.user.phone }}</td>
-                                <!-- <td>{{ order.user.address }}</td>
-                                <td>{{ order.user.city }}</td> -->
-                                <td>{{ order.totalPrice | currency: "VND" }}</td>
+                                <td>{{ order.user.address }}</td>
+                                <td>{{ order.user.city }}</td>
+                                <td>{{ order.user.payment }}</td>
+                                <td>{{ order.id }}</td>
+                                <td>{{ order.cart[0].product.name }}</td>
+                                <td><img [src]="order.cart[0].product.imagePath" style="height: 75px; width: 75px"/></td>
+                                <td>{{ order.cart[0].quantity }}</td>
+                                <td>{{ order.cart[0].price | currency: "VND" }}</td>
                                 <td>{{ order.date}}</td>
-                                <td>{{order.cart[0].product.name}}</td>
-                                <td>  <img [src]="order.cart[0].product.imagePath" style="height:100px"/></td>
-                                <td><button class="btn btn-success">{{ order.user.payment }}</button></td>
+                                <td>{{ order.totalPrice | currency: "VND" }}</td>
+                                
                                 
 
                                 <!-- <td style="white-space: nowrap; margin: 18px 0px">
