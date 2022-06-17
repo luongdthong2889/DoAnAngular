@@ -55,15 +55,45 @@
                         </thead>
                         <tbody>
                             <tr *ngFor="let order of orders;let index=index">
-                                <!-- <td>{{ order.id }}</td>
-                                <td>{{ order.cart.product.name }}</td>
-                                <td>{{ order.cart.quantity }}</td>
-                                <td>{{ order.cart.price }}</td>
-                                <td>{{ order.totalPrice|currency: "VND"}}</td> -->
+                                
                                 <button class="btn btn-danger" style="float: left;margin:18px 0px; border-radius: 0;" [routerLink]="[index]"
         routerLinkActive="active">Xem Chi Tiết</button>
                             </tr>
                         </tbody>
+                    </table>
+                    <table class="timetable_sub">
+                        <tr>
+                            <th>STT</th>
+                            <th>Món</th>
+                            <th>Số lượng</th>
+                            <th>Tên món</th>
+                            <th>Giá</th>
+                            <th>Xoá</th>
+                        </tr>
+                        <tr class="rem1" *ngFor="let cartItem of cart;let i=index">
+                            <td class="invert">
+                                {{i+1}}
+                            </td>
+                            <td class="invert-image" width="514.72px" height="154.41px">
+                                <a [routerLink]="['/detail',i]" routerLinkActive="router-link-active" ><img src="{{cartItem.product.imagePath}}" alt=" "  class="img-responsive"></a>
+                            </td>
+                            <td class="invert">
+                                <div class="quantity">
+                                    <div class="quantity-select">
+                                        <div class="entry value"><span>{{cartItem.quantity}}</span></div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="invert">
+                                {{cartItem.product.name}} (Size {{cartItem.product.size}} | {{cartItem.product.types}} Đá | {{cartItem.product.sugarTypes}} Đường) 
+                            </td>
+    
+                            <td class="invert">
+                                {{cartItem.price|currency: "VND"}}
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
                     </table>
                 </div>
             </div>

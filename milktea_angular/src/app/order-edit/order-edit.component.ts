@@ -37,10 +37,10 @@ export class OrderEditComponent implements OnInit {
     let userAddress='';
     let userCity='';
     let userPayment='';
-    // let productName='';
-    // let productQuantity;
-    // let productPrice;
-    // let productTotalPrice;
+    let productName='';
+    let productQuantity;
+    let productPrice;
+    let productTotalPrice;
     if(this.editMode){
       const order=this.orderService.getOrder(this.id);
       console.log(this.id);
@@ -51,10 +51,10 @@ export class OrderEditComponent implements OnInit {
       userAddress=order.user.address;
       userCity=order.user.city;
       userPayment=order.user.payment;
-      // productName=order.cart.product.name;
-      // productQuantity = order.cart.quantity;
-      // productPrice = order.cart.price;
-      // productTotalPrice = order.totalPrice;
+      productName=order.cart.product.name;
+      productQuantity = order.cart.quantity;
+      productPrice = order.cart.price;
+      productTotalPrice = order.totalPrice;
     }
     this.orderForm= new FormGroup({
       'id':new FormControl(orderID,[Validators.required,Validators.pattern(/^[0-9]+[0-9]*$/)]),
@@ -62,7 +62,8 @@ export class OrderEditComponent implements OnInit {
       'phone': new FormControl(userPhone,[Validators.required,Validators.pattern(/^((\\+91-?)|0)?[0-9]{10}$/)]),
       'address': new FormControl(userAddress,Validators.required),
       'city': new FormControl(userCity,Validators.required),
-      'payment':new FormControl(userPayment,Validators.required)
+      'payment':new FormControl(userPayment,Validators.required),
+
     });
   }
   onSubmitOrder(){

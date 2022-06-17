@@ -1,4 +1,4 @@
-<div class="col-sm-6">
+<div class="col-sm-12">
     <app-search-order>
     </app-search-order>
     <div class="col-sm-12">
@@ -15,8 +15,11 @@
                                 <!-- <th>Địa Chỉ</th>
                                 <th>Thành Phố</th> -->
                                 <th>Tổng Tiền</th>
-                                <th>Thanh Toán Bằng</th>
-                                <th>Chức Năng</th>
+                                <th>Ngày Đặt</th>
+                                <th>Tên nước</th>
+                                <th>Hình ảnh</th>
+                                <th>Hình thức</th>
+                                <th></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -27,15 +30,20 @@
                                 <!-- <td>{{ order.user.address }}</td>
                                 <td>{{ order.user.city }}</td> -->
                                 <td>{{ order.totalPrice | currency: "VND" }}</td>
-                                <td>{{ order.user.payment }}</td>
-                                <td style="white-space: nowrap; margin: 18px 0px">
+                                <td>{{ order.date}}</td>
+                                <td>{{order.cart[0].product.name}}</td>
+                                <td>  <img [src]="order.cart[0].product.imagePath" style="height:100px"/></td>
+                                <td><button class="btn btn-success">{{ order.user.payment }}</button></td>
+                                
+
+                                <!-- <td style="white-space: nowrap; margin: 18px 0px">
                                     <button class="btn btn-info" [routerLink]="[index]" routerLinkActive="active">
                                         Xem Chi Tiết
                                     </button>
                                     <button class="btn-delele btn btn-danger" style="margin-left: 18px" (click)="deleteOrder()">
                                         Xoá
                                     </button>
-                                </td>
+                                </td> -->
                             </tr>
                         </tbody>
                     </table>

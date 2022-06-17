@@ -6,10 +6,12 @@ export class Order{
     cart:Cart;
     user:User;
     totalPrice:number;
-    constructor(id:number,cart:Cart,user:User,totalprice:number){
+    date:Date;
+    constructor(id:number,cart:Cart,user:User,totalprice:number,date:Date){
         this.id = id;
         this.cart = cart;
         this.user = user;
         this.totalPrice = totalprice;
+        this.date= date;
     }
 }
